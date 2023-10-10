@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codeigniter-3</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
     <style>
         :root {
             /* Light theme */
@@ -390,39 +396,39 @@
 
         <div class="contact-con">
             <div class="contact">
-                <p>Sign up</p>
-                <form method="post" class="contact-form" autocomplete="off">
+                <p>Sign up Admin</p>
+                <form action="<?php echo base_url(); ?>Auth/register_admin" method="post" class="contact-form"
+                    autocomplete="off">
                     <div class="input-group">
                         <input id="password" required="" type="text" name="email" class="input">
                         <label class="user-label">Email</label>
                     </div>
                     <div class="input-group">
-                        <input type="password" name="password" required class="input">
+                        <input type="password" name="password" required class="input" >
                         <label for="password" class="user-label">Password</label>
                     </div>
                     <div class="input-group ">
-                        <input id="password" required="" type="text" name="username" class="input">
+                        <input id="username" required="" type="text" name="username" class="input">
                         <label class="user-label">Username</label>
                     </div>
                     <div class="input-group">
-                        <input id="password" required="" type="text" name="email" class="input">
+                        <input id="nama_depan" required="" type="text" name="nama_depan" class="input">
                         <label class="user-label">Nama depan</label>
                     </div>
                     <div class="input-group ">
-                        <input id="password" required="" type="text" name="username" class="input">
+                        <input id="nama_belakang" required="" type="text" name="nama_belakang" class="input">
                         <label class="user-label">Nama belakang</label>
                     </div>
                     <div class="input-group ">
-                        <input id="password" required="" type="text" name="username" class="input">
-                        <label class="user-label">Role</label>
+                        <input id="role" required="" type="hidden" value="admin" name="role" class="input">
                     </div>
 
-
-
+                   
+                  
             </div>
 
             <div class="btn">
-                <button type="submit" class="cta" id="btn">
+                <button type="submit" name="submit" class="cta" id="btn">
                     <span class="hover-underline-animation"> Register </span>
                     <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10"
                         viewBox="0 0 46 16">
@@ -431,8 +437,6 @@
                             transform="translate(30)"></path>
                     </svg>
                 </button>
-
-
             </div>
 
             </form>
@@ -440,5 +444,11 @@
 
     </div>
 </body>
+<script>
+    document.getElementById('showPasswordCheckbox').addEventListener('change', function () {
+        const passwordInput = document.getElementById('password');
+        passwordInput.type = this.checked ? 'text' : 'password';
+    });
+</script>
 
 </html>

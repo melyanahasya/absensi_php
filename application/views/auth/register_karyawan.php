@@ -160,6 +160,7 @@
         /* From uiverse.io by @alexruix */
         .input-group {
             position: relative;
+            margin-top: 12px;
         }
 
         .input {
@@ -389,25 +390,40 @@
 
         <div class="contact-con">
             <div class="contact">
-                <p>Sign in</p>
-                <!-- Auth/aksi_login berasal dari file Auth.php controllers -->
-                <form action="<?php echo base_url(); ?>Auth/aksi_login" method="post" class="contact-form" autocomplete="off">
-                    <div class="input-group first">
+                <p>Sign up Karyawan</p>
+                <form action="<?php echo base_url(); ?>Auth/register_karyawan" method="post" class="contact-form"
+                    autocomplete="off">
+                    <div class="input-group">
                         <input id="password" required="" type="text" name="email" class="input">
                         <label class="user-label">Email</label>
                     </div>
                     <div class="input-group">
                         <input type="password" name="password" required class="input">
                         <label for="password" class="user-label">Password</label>
-
-
-
+                    </div>
+                    <div class="input-group ">
+                        <input id="username" required="" type="text" name="username" class="input">
+                        <label class="user-label">Username</label>
+                    </div>
+                    <div class="input-group">
+                        <input id="nama_depan" required="" type="text" name="nama_depan" class="input">
+                        <label class="user-label">Nama depan</label>
+                    </div>
+                    <div class="input-group ">
+                        <input id="nama_belakang" required="" type="text" name="nama_belakang" class="input">
+                        <label class="user-label">Nama belakang</label>
+                    </div>
+                    <div class="input-group ">
+                        <input id="role" required="" value="karyawan" type="hidden" name="role" class="input">
                     </div>
 
+
+
             </div>
+
             <div class="btn">
                 <button type="submit" class="cta" id="btn">
-                    <span class="hover-underline-animation"> Login </span>
+                    <span class="hover-underline-animation"> Register </span>
                     <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10"
                         viewBox="0 0 46 16">
                         <path id="Path_10" data-name="Path 10"
@@ -418,25 +434,17 @@
 
 
             </div>
-            <!-- <p>belum punya akun?</p> -->
-            <div class="btn">
-                <a href="/absensi/auth/register" type="submit" class="cta" id="btn">
-                    <span class="hover-underline-animation"> Register </span>
-                    <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10"
-                        viewBox="0 0 46 16">
-                        <path id="Path_10" data-name="Path 10"
-                            d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                            transform="translate(30)"></path>
-                    </svg>
-                </a>
-
-
-            </div>
 
             </form>
         </div>
 
     </div>
 </body>
+<script>
+    document.getElementById('showPasswordCheckbox').addEventListener('change', function () {
+        const passwordInput = document.getElementById('password');
+        passwordInput.type = this.checked ? 'text' : 'password';
+    });
+</script>
 
 </html>
