@@ -14,6 +14,17 @@
 
         /* Bootstrap Icons */
         @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+
+        .header-data-karyawan {
+            display: flex;
+            gap: 45rem;
+        }
+
+        @media (max-width: 600px) {
+            .header-data-karyawan {
+                gap: 3.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -24,18 +35,24 @@
 
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
-        <?php include('sidebar.php'); ?>
         <!-- Main content -->
         <div class="h-screen flex-grow-1 overflow-y-lg-auto">
             <!-- Header -->
-            <?php include('navbar.php'); ?>
+
             <!-- Main -->
             <main class="py-6 bg-surface-secondary">
                 <div class="container-fluid">
 
                     <div class="card shadow border-0 mb-7">
                         <div class="card-header">
-                            <h5 class="mb-0">Data Karyawan</h5>
+
+                            <div class="header-data-karyawan">
+                                <h5 class="mb-0">Data Karyawan</h5>
+
+                                <a href="" type="button" class="btn btn-sm btn-primary text-danger-hover">
+                                    export
+                                </a>
+                            </div>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-hover table-nowrap">
@@ -87,7 +104,8 @@
                                                 <?php echo $row->status; ?>
                                             </td>
                                             <td class="text-end">
-                                                <a href="#"  class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-pen"></i></a>
+                                                <a href="#" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i
+                                                        class="bi bi-pen"></i></a>
                                                 <button type="button"
                                                     class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                     <i class="bi bi-trash"></i>

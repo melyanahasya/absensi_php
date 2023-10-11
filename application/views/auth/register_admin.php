@@ -422,9 +422,6 @@
                     <div class="input-group ">
                         <input id="role" required="" type="hidden" value="admin" name="role" class="input">
                     </div>
-
-                   
-                  
             </div>
 
             <div class="btn">

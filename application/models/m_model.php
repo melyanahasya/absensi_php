@@ -28,7 +28,7 @@ class M_model extends CI_Model
     }
 
 
-    public function register_admin($email, $username,$nama_depan, $nama_belakang,$role, $password)
+    public function register_admin($email, $username, $nama_depan, $nama_belakang, $role, $password)
     {
         $data = array(
             'email' => $email,
@@ -43,7 +43,7 @@ class M_model extends CI_Model
         $this->db->insert('user', $data);
     }
 
-    public function register_karyawan($email, $username,$nama_depan, $nama_belakang,$role, $password)
+    public function register_karyawan($email, $username, $nama_depan, $nama_belakang, $role, $password)
     {
         $data = array(
             'email' => $email,
@@ -56,6 +56,21 @@ class M_model extends CI_Model
 
         // Simpan data ke dalam tabel pengguna (ganti 'users' sesuai dengan nama tabel Anda)
         $this->db->insert('user', $data);
+    }
+
+
+    // 1. get id untuk Ubah
+    public function get_by_id($tabel, $id_column, $id)
+    {
+        $data = $this->db->where($id_column, $id)->get($tabel);
+        return $data;
+    }
+
+    // Ubah
+    public function ubah_data($tabel, $data, $where)
+    {
+        $data = $this->db->update($tabel, $data, $where);
+        return $this->db->affected_rows();
     }
 
 }

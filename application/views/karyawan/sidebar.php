@@ -62,24 +62,24 @@
                 <!-- Navigation -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="<?php echo base_url('/karyawan/')?>">
                             <i class="bi bi-house"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="<?php echo base_url('/karyawan/history_absen')?>">
                             <i class="bi bi-bar-chart"></i> History Absen
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="<?php echo base_url('/karyawan/menu_absen')?>">
                             <i class="bi bi-bar-chart"></i> Menu Absen
                         </a>
                     </li>
                    
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-bookmarks"></i> Menu Izin
+                        <a class="nav-link" href="<?php echo base_url('/karyawan/menu_izin')?>">
+                            <i class="bi bi-bar-chart"></i> Menu Izin
                         </a>
                     </li>
                     <li class="nav-item">
@@ -101,7 +101,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="<?php echo base_url('auth/logout'); ?>">
                             <i class="bi bi-box-arrow-left"></i> Logout
                         </a>
                     </li>
