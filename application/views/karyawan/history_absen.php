@@ -9,11 +9,64 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         @import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
 
         /* Bootstrap Icons */
         @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+
+
+        .aksi_history {
+            display: flex;
+            gap: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .btn-edit {
+                margin-left: 5rem;
+            }
+
+            tbody {
+                text-align: left;
+            }
+
+            .option-select {
+                font-size: 12px;
+            }
+
+            .td {
+                padding-right: none;
+                display: flex;
+                justify-content: left;
+            }
+
+            .responsive-3 {
+                width: 100%;
+            }
+
+            th {
+                display: none;
+            }
+
+            td {
+                display: grid;
+                gap: 0.5rem;
+                grid-template-columns: 15ch auto;
+                padding: 0.75em 1rem;
+            }
+
+            td:first-child {
+                padding-top: 2rem;
+            }
+
+            td::before {
+                content: attr(data-cell) "  : ";
+                font-weight: bold;
+            }
+        }
     </style>
 </head>
 
@@ -61,38 +114,61 @@
                                         $no++ ?>
                                         <tr>
 
-                                            <td>
+                                            <td data-cell="No ">
                                                 <?php echo $no ?>
                                             </td>
 
-                                            <td>
+                                            <td data-cell="Nama Karyawan">
                                                 <?php echo $row->nama_depan . ' ' . $row->nama_belakang; ?>
                                             </td>
-                                            <td>
-                                                <?php echo $row->kegiatan; ?>
+                                            <td data-cell="Kegiatan">
+                                                <?php if ($row->kegiatan == NULL) {
+                                                    echo '-';
+                                                } else {
+                                                    echo $row->kegiatan;
+                                                } ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Date">
                                                 <?php echo $row->date; ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Jam Masuk">
                                                 <?php echo $row->jam_masuk; ?>
                                             </td>
-                                            <td>
-                                                <?php echo $row->jam_pulang; ?>
+                                            <td data-cell="Jam Pulang">
+                                                <?php if ($row->jam_pulang == NULL) {
+                                                    echo '-';
+                                                } else {
+                                                    echo $row->jam_pulang;
+                                                } ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Keterangan">
                                                 <?php echo $row->keterangan; ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Status">
                                                 <?php echo $row->status; ?>
                                             </td>
-                                            <td class="text-end">
-                                                <a href="#"  class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i class="bi bi-pen"></i></a>
-                                                <button type="button"
+                                            <td data-cell="Aksi" class="text-end aksi_history">
+                                                <a href="<?php echo base_url('karyawan/menu_absen/') . $row->id ?>"
+                                                    class="btn btn-sm btn-square btn-neutral text-danger-hover btn-edit"> <i
+                                                        class="bi bi-pen"></i></a>
+                                                <!-- <button type="button"
                                                     class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                     <i class="bi bi-check"></i>
-                                                </button>
-                                                <button type="button"
+                                                </button> -->
+                                                <?php
+                                                if ($row->status == 'done') {
+                                                    echo '<div>  <button disabled" class="btn btn-sm btn-square btn-neutral text-danger-hover">  <i class="bi bi-check"></i>  </button> 
+                                                    </div>';
+                                                } else {
+                                                    echo '<div>
+                        <buttononclick= "pulang(' . $row->id . ')"
+                        class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                        <i class="bi bi-check"></i>
+                        </button>
+                       </div>';
+                                                }
+                                                ?>
+                                                <button onclick="hapus(<?php echo $row->id ?>)" type="button"
                                                     class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                     <i class="bi bi-trash"></i>
                                                 </button>
@@ -110,6 +186,59 @@
             </main>
         </div>
     </div>
+
+    <script>
+        function hapus(id) {
+            Swal.fire({
+                title: 'Akan Dihapus?',
+                text: "data ini tidak bisa dikembalikan lagi!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Batal',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Sukses Menghapus!!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    setTimeout(() => {
+                        window.location.href = "<?php echo base_url('karyawan/history_absen/') ?>" + id;
+                    }, 1800);
+                }
+            })
+        }
+        function pulang(id) {
+            Swal.fire({
+                title: 'Apakah Mau Pulang?',
+                // text: "Pastikan kegiatan sudah dilakukan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Batal',
+                confirmButtonText: 'Ya, pulang!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Berhasil!!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    setTimeout(() => {
+                        window.location.href = "<?php echo base_url('karyawan/pulang/') ?>" + id;
+                    }, 1800);
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

@@ -96,7 +96,7 @@
                 <!-- User (md) -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="<?php echo base_url('karyawan/profile')?>">
                             <i class="bi bi-person-square"></i> Account
                         </a>
                     </li>

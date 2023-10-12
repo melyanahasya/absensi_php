@@ -20,11 +20,16 @@ class Karyawan extends CI_Controller
     {
         $this->load->view('karyawan/dashboard_karyawan');
     }
-    public function menu_absen()
+    public function profile()
     {
-        $data['result'] = $this->m_model->get_data('absensi')->result();
-        $this->load->view('karyawan/menu_absen', $data);
+        $data['user'] = $this->m_model->get_by_id('user', 'id', $this->session->userdata('id'))->result();
+        $this->load->view('karyawan/profile', $data);
     }
+    // public function menu_absen()
+    // {
+    //     $data['kegiatan'] = $this->m_model->get_data('absensi')->result();
+    //     $this->load->view('karyawan/menu_absen', $data);
+    // }
     public function menu_izin()
     {
         $data['result'] = $this->m_model->get_data('absensi')->result();
@@ -33,40 +38,76 @@ class Karyawan extends CI_Controller
 
     public function history_absen()
     {
-        $data['result'] = $this->m_model->getData();
+        $idKaryawan = $this->session->userdata('id');
+        $data_karyawan = $this->m_model->getAbsensiByIdKaryawan($idKaryawan);
+        $data['result'] = $data_karyawan;
         $this->load->view('karyawan/history_absen', $data);
     }
 
-    public function ubah_history_absen()
+
+    public function menu_absen($id)
     {
-        // $data['absensi'] = $this->m_model->get_by_id('absnsi', 'id', $id)->result();
-        // $data['user'] = $this->m_model->get_data('user')->result();
-        $this->load->view('karyawan/ubah_history_absen');
+        $data['kegiatan'] = $this->m_model->get_by_id('absensi', 'id', $id)->result();
+        $this->load->view('karyawan/menu_absen', $data);
     }
 
-    public function aksi_ubah_history_absen()
+    public function aksi_update_history_absen()
     {
-        $data = array(
-            'id_karyawan' => $this->input->post('nama'),
+        $data = [
             'kegiatan' => $this->input->post('kegiatan'),
-            'date' => $this->input->post('date'),
-            'jam_masuk' => $this->input->post('masuk'),
-            'jam_pulang' => $this->input->post('pulang'),
-            'keterangan' => $this->input->post('keterangan'),
-            'status' => $this->input->post('status'),
-        );
-
-        $eksekusi = $this->m_model->ubah_data
-        ('absensi', $data, array('id' => $this->input->post('id')));
+        ];
+        $eksekusi = $this->m_model->ubah_data('absensi', $data, array('id' => $this->input->post('id')));
         if ($eksekusi) {
             $this->session->set_flashdata('sukses', 'berhasil');
             redirect(base_url('karyawan/history_absen'));
         } else {
-            $this->session->set_flashdata('error', 'gagal..');
-            redirect(base_url('karyawan/history_absen/ubah_history_absen/' . $this->input->post('id')));
+            $this->session->set_flashdata('error', 'gagal...');
+            redirect(base_url('karyawan/menu_absen/' . $this->input->post('id')));
         }
     }
 
 
-   
+    public function hapus($id)
+    {
+        $this->m_model->delete('absensi', 'id', $id);
+        redirect(base_url('karyawan/history_absen'));
+    }
+
+
+    public function pulang($id)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $waktu_sekarang = date('Y-m-d H:i:s');
+        $data = [
+            'jam_pulang' => $waktu_sekarang,
+            'status' => 'done'
+        ];
+        $this->m_model->update('absensi', $data, array('id' => $id));
+        redirect(base_url('karyawan/history_absen'));
+    }
+
+
+
+    // public function update_kegiatan($id)
+    // {
+    //     $data['kegiatan'] = $this->m_model->get_by_id('absensi', 'id', $id)->result();
+    //     $this->load->view('karyawan/menu_absen', $data);
+    // }
+
+    // public function aksi_ubah_kegiatan()
+    // {
+    //     $data = array(
+    //         'kegiatan' => $this->input->post('kegiatan'),
+    //     );
+
+    //     $eksekusi = $this->m_model->ubah_data
+    //     ('absensi', $data, array('id' => $this->input->post('id')));
+    //     if ($eksekusi) {
+    //         $this->session->set_flashdata('sukses', 'berhasil menambah kegiatan');
+    //         redirect(base_url('karyawan/history_absen'));
+    //     } else {
+    //         $this->session->set_flashdata('error', 'gagal..');
+    //         redirect(base_url('karyawan/menu_absen/update_kegiatan/' . $this->input->post('id')));
+    //     }
+    // }
 }

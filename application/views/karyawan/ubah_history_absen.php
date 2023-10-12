@@ -37,54 +37,21 @@
                             <h5 class="mb-0">Ubah History Absen</h5>
                         </div>
                         <div class="">
-                            <?php foreach ($absensi as $row): ?>
-                                <form action="<?php echo base_url('karyawan/aksi_ubah_siswa') ?>" class="form-menu-absen">
+                            <?php foreach ($kegiatan as $row): ?>
+                                <form method="post action=" <?php echo base_url('karyawan/aksi_update_history_absen') ?>"
+                                    class="form-menu-absen">
                                     <input name="id" type="hidden" value="<?php echo $row->id ?>">
 
                                     <div class="mb-3">
-                                        <div>
-                                            <label for="nama" class="form-label">Nama Karyawan</label>
-                                            <input id="nama" name="nama" value="<?php echo $row->nama_karyawan ?>" rows="6"
-                                                class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
-                                                required></input>
-                                        </div>
-
                                         <div> <label for="kegiatan" class="form-label">Kegiatan</label>
-                                            <input id="kegiatan" name="kegiatan" value="<?php echo $row->kegiatan ?>" rows="6"
+                                            <input id="kegiatan" name="kegiatan" value="<?php echo $row->id ?>"
+                                                rows="6"
                                                 class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
                                                 required></input>
                                         </div>
-                                        <div> <label for="date" class="form-label">Date</label>
-                                            <input type="date" id="date" name="date" value="<?php echo $row->date ?>" rows="6"
-                                                class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
-                                                required></input>
-                                        </div>
-                                        <div> <label for="masuk" class="form-label">Jam Masuk</label>
-                                            <input id="masuk" name="masuk" value="<?php echo $row->jam_masuk ?>" rows="6"
-                                                class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
-                                                required></input>
-                                        </div>
-                                        <div> <label for="pulang" class="form-label">Jam Pulang</label>
-                                            <input id="pulang" name="pulang" value="<?php echo $row->jam_pulang ?>" rows="6"
-                                                class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
-                                                required></input>
-                                        </div>
-                                        <div> <label for="keterangan" class="form-label">Keterangan</label>
-                                            <input id="keterangan" name="keterangan" value="<?php echo $row->keterangan ?>" rows="6"
-                                                class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
-                                                required></input>
-                                        </div>
-                                        <div> <label for="status" class="form-label">Status</label>
-                                            <input id="status" name="status" value="<?php echo $row->status ?>" rows="6"
-                                                class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
-                                                required></input>
-                                        </div>
-
-
                                     </div>
 
                                     <button name="submit" type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1">
-
                                         <span>Submit</span>
                                     </button>
                                 </form>

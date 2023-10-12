@@ -73,4 +73,18 @@ class M_model extends CI_Model
         return $this->db->affected_rows();
     }
 
+
+    public function get_user_by_id($user_id) {
+        $this->db->where('id', $user_id);
+        return $this->db->get('users')->row();
+    }
+
+
+    public function getAbsensiByIdKaryawan($idKaryawan) {
+        $this->db->select('absensi.*, user.nama_depan, user.nama_belakang');
+        $this->db->where('absensi.id_kayawan', $idKaryawan);
+        $this->db->join('user', 'user.id = absensi.id_kayawan', 'left');
+        $query = $this->db->get('absensi');
+        return $query->result();
+    }
 }
