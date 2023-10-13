@@ -6,7 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codeigniter-3</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
     <style>
+        .form-group {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            /* Anda bisa menyesuaikan jarak kanan sesuai kebutuhan */
+            cursor: pointer;
+        }
+
         :root {
             /* Light theme */
             --c-light-text: #333;
@@ -391,16 +407,16 @@
             <div class="contact">
                 <p>Sign in</p>
                 <!-- Auth/aksi_login berasal dari file Auth.php controllers -->
-                <form action="<?php echo base_url(); ?>Auth/aksi_login" method="post" class="contact-form" autocomplete="off">
+                <form action="<?php echo base_url(); ?>Auth/aksi_login" method="post" class="contact-form"
+                    autocomplete="off">
                     <div class="input-group first">
-                        <input id="password" required="" type="text" name="email" class="input">
+                        <input required="" type="text" name="email" class="input">
                         <label class="user-label">Email</label>
                     </div>
                     <div class="input-group">
-                        <input type="password" name="password" required class="input">
+                        <input type="password" id="password" name="password" required class="input">
+                        <i class="password-toggle fa fa-eye-slash" onclick="togglePassword()"></i>
                         <label for="password" class="user-label">Password</label>
-
-
 
                     </div>
 
@@ -437,6 +453,26 @@
         </div>
 
     </div>
+    <script type="text/javascript">
+        function togglePassword() {
+            var passwordField = document.getElementById('password');
+            var passwordToggle = document.querySelector('.password-toggle');
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+
+
+            } else {
+                passwordField.type = "password";
+                passwordToggle.classList.add('fa-eye-slash');
+                passwordToggle.classList.remove('fa-eye');
+
+            }
+        }
+    </script>
+
 </body>
 
 </html>

@@ -31,7 +31,7 @@
             </button>
             <!-- Brand -->
             <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-                <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" alt="...">
+                <img  style="width: 100px; height: 50px;" src="https://findlogovector.com/wp-content/uploads/2019/03/absen-logo-vector.png" alt="...">
             </a>
             <!-- User menu (mobile) -->
             <div class="navbar-user d-lg-none">

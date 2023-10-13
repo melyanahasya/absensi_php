@@ -37,14 +37,14 @@
                             <h5 class="mb-0">Ubah History Absen</h5>
                         </div>
                         <div class="">
-                            <?php foreach ($kegiatan as $row): ?>
-                                <form method="post action=" <?php echo base_url('karyawan/aksi_update_history_absen') ?>"
+                            <?php foreach ($result as $row): ?>
+                                <form method="post" action=" <?php echo base_url('karyawan/aksi_update_history_absen') ?>"
                                     class="form-menu-absen">
                                     <input name="id" type="hidden" value="<?php echo $row->id ?>">
 
                                     <div class="mb-3">
-                                        <div> <label for="kegiatan" class="form-label">Kegiatan</label>
-                                            <input id="kegiatan" name="kegiatan" value="<?php echo $row->id ?>"
+                                        <div> <label for="keterangan" class="form-label">Keterangan Izin</label>
+                                            <input id="keterangan" name="keterangan_izin" value="<?php echo $row->keterangan_izin ?>"
                                                 rows="6"
                                                 class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
                                                 required></input>

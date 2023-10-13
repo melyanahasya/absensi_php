@@ -39,20 +39,17 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Budget</span>
-                                            <span class="h3 font-bold mb-0">$750.90</span>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Karyawan</span>
+                                            <span class="h3 font-bold mb-0"><?php echo $total_karyawan?></span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
-                                                <i class="bi bi-credit-card"></i>
+                                                <i class="bi bi-people"></i>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mt-2 mb-0 text-sm">
-                                        <span class="badge badge-pill bg-soft-success text-success me-2">
-                                            <i class="bi bi-arrow-up me-1"></i>13%
-                                        </span>
-                                        <span class="text-nowrap text-xs text-muted">Since last month</span>
+                                      
                                     </div>
                                 </div>
                             </div>
@@ -73,10 +70,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-2 mb-0 text-sm">
-                                        <span class="badge badge-pill bg-soft-success text-success me-2">
-                                            <i class="bi bi-arrow-up me-1"></i>30%
-                                        </span>
-                                        <span class="text-nowrap text-xs text-muted">Since last month</span>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -97,10 +91,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-2 mb-0 text-sm">
-                                        <span class="badge badge-pill bg-soft-danger text-danger me-2">
-                                            <i class="bi bi-arrow-down me-1"></i>-5%
-                                        </span>
-                                        <span class="text-nowrap text-xs text-muted">Since last month</span>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -121,10 +112,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-2 mb-0 text-sm">
-                                        <span class="badge badge-pill bg-soft-success text-success me-2">
-                                            <i class="bi bi-arrow-up me-1"></i>10%
-                                        </span>
-                                        <span class="text-nowrap text-xs text-muted">Since last month</span>
+                                       
                                     </div>
                                 </div>
                             </div>

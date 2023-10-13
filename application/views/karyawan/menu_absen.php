@@ -37,27 +37,19 @@
                             <h5 class="mb-0">Menu Absen</h5>
                         </div>
                         <div class="table-responsive">
-                            <?php foreach ($kegiatan as $row): ?>
-                                <form method="post" action="<?php echo base_url('karyawan/aksi_update_history_absen') ?>"
-                                    class="form-menu-absen">
-                                    <input name="id" type="hidden" value="<?php echo $row->id ?>">
-
-                                    <div class="mb-3">
-                                        <label for="kegiatan" class="form-label">Kegiatan*</label>
-                                        <textarea id="kegiatan" name="kegiatan" rows="6"
-                                            class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
-                                            required><?php echo $row->kegiatan ?></textarea>
-                                        <div id="emailHelp" class="form-text">Isi kegiatan diatas untuk mencatat kegiatan
-                                            karyawan
-                                        </div>
+                            <form method="post" action="<?php echo base_url('karyawan/aksi_absen') ?>" class="form-menu-absen">
+                                <div class="mb-3">
+                                    <label for="kegiatan" class="form-label">Kegiatan*</label>
+                                    <textarea id="kegiatan" name="kegiatan" rows="6" class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500" required></textarea>
+                                    <div id="kegiatan" class="form-text">Isi form kegiatan diatas untuk mencatat kegiatan karyawan
                                     </div>
+                                </div>
 
-                                    <button name="submit" type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                <button name="submit" type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1">
 
-                                        <span>Submit</span>
-                                    </button>
-                                </form>
-                            <?php endforeach ?>
+                                    <span>Submit</span>
+                                </button>
+                            </form>
                         </div>
                         <div class="card-footer border-0 py-5">
                         </div>

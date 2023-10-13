@@ -17,12 +17,28 @@
 
         .header-data-karyawan {
             display: flex;
-            gap: 45rem;
+            /* gap: 43rem; */
+        }
+
+        .btn-export {
+            height: 2.3rem;
+            margin-left: 20px;
+        }
+
+        .form-select {
+            width: 9.8rem;
+            height: 2.7rem;
+            font-size: small;
+            margin-left: 32rem;
         }
 
         @media (max-width: 600px) {
             .header-data-karyawan {
-                gap: 3.5rem;
+                gap: 3rem;
+            }
+
+            .btn-export {
+                height: 2rem;
             }
         }
     </style>
@@ -47,9 +63,24 @@
                         <div class="card-header">
 
                             <div class="header-data-karyawan">
-                                <h5 class="mb-0">Data Karyawan</h5>
+                                <h5 class="mb-0">Rekap Data Karyawan</h5>
 
-                                <a href="" type="button" class="btn btn-sm btn-primary text-danger-hover">
+                                <select name="kelas" class="form-select" aria-label="Default select example">
+                                    <option selected>pilih rekap</option>
+
+                                    <option value="">
+                                        Harian
+                                    </option>
+                                    <option value="">
+                                        Mingguan
+                                    </option>
+                                    <option value="">
+                                        Bulanan
+                                    </option>
+
+                                </select>
+                                <a href="<?php echo base_url('/admin/export_data_karyawan') ?>" type="button"
+                                    class="btn btn-sm btn-primary  btn-export">
                                     export
                                 </a>
                             </div>
@@ -65,10 +96,9 @@
                                         <th scope="col" class="text-center">Date</th>
                                         <th scope="col" class="text-center">Jam Masuk</th>
                                         <th scope="col" class="text-center">Jam Pulang</th>
-                                        <th scope="col" class="text-center">Keterangan</th>
+                                        <th scope="col" class="text-center">Keterangan Izin</th>
                                         <th scope="col" class="text-center">Status</th>
 
-                                        <th scope="col" class="text-center">Aksi</th>
                                     </tr>
 
                                 </thead>
@@ -98,19 +128,12 @@
                                                 <?php echo $row->jam_pulang; ?>
                                             </td>
                                             <td>
-                                                <?php echo $row->keterangan; ?>
+                                                <?php echo $row->keterangan_izin; ?>
                                             </td>
                                             <td>
                                                 <?php echo $row->status; ?>
                                             </td>
-                                            <td class="text-end">
-                                                <a href="#" class="btn btn-sm btn-square btn-neutral text-danger-hover"> <i
-                                                        class="bi bi-pen"></i></a>
-                                                <button type="button"
-                                                    class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                    <i class="bi bi-trash"></i>
-                                                </button>
-                                            </td>
+
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

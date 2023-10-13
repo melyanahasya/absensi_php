@@ -37,11 +37,11 @@
                             <h5 class="mb-0">Menu Izin / Cuti</h5>
                         </div>
                         <div class="table-responsive">
-                            <form class="form-menu-absen">
+                            <form method="post" action="<?php echo base_url('karyawan/aksi_izin') ?>" class="form-menu-absen">
                                 <div class="mb-3">
-                                    <label for="keterangan" class="form-label">Keterangan*</label>
-                                    <textarea id="keterangan" name="keterangan" rows="6" class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500" required></textarea>
-                                    <div id="emailHelp" class="form-text">Isi keterangan diatas untuk mencatat keterangan karyawan
+                                    <label for="keterangan" class="form-label">Keterangan Izin*</label>
+                                    <textarea id="izin" name="izin" rows="6" class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500" required></textarea>
+                                    <div id="emailHelp" class="form-text">Isi form keterangan diatas untuk mencatat izin karyawan
                                     </div>
                                 </div>
 

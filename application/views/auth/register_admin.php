@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codeigniter-3</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 
 
     <style>
@@ -43,6 +44,19 @@
 
             display: flex;
             flex-direction: column;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            /* Anda bisa menyesuaikan jarak kanan sesuai kebutuhan */
+            cursor: pointer;
         }
 
         .theme-container {
@@ -399,13 +413,15 @@
                 <p>Sign up Admin</p>
                 <form action="<?php echo base_url(); ?>Auth/register_admin" method="post" class="contact-form"
                     autocomplete="off">
-                    <div class="input-group">
-                        <input id="password" required="" type="text" name="email" class="input">
+                    <div class="input-group first">
+                        <input required="" type="text" name="email" class="input">
                         <label class="user-label">Email</label>
                     </div>
                     <div class="input-group">
-                        <input type="password" name="password" required class="input" >
+                        <input type="password" id="password" name="password" required class="input">
+                        <i class="password-toggle fa fa-eye-slash" onclick="togglePasswordd()"></i>
                         <label for="password" class="user-label">Password</label>
+
                     </div>
                     <div class="input-group ">
                         <input id="username" required="" type="text" name="username" class="input">
@@ -440,12 +456,26 @@
         </div>
 
     </div>
+    <script type="text/javascript">
+        function togglePasswordd() {
+            var passwordField = document.getElementById('password');
+            var passwordToggle = document.querySelector('.password-toggle');
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+
+
+            } else {
+                passwordField.type = "password";
+                passwordToggle.classList.add('fa-eye-slash');
+                passwordToggle.classList.remove('fa-eye');
+
+            }
+        }
+    </script>
+
 </body>
-<script>
-    document.getElementById('showPasswordCheckbox').addEventListener('change', function () {
-        const passwordInput = document.getElementById('password');
-        passwordInput.type = this.checked ? 'text' : 'password';
-    });
-</script>
 
 </html>

@@ -31,7 +31,7 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
-            height: 250px;
+            height: 200px;
         }
 
         header i {
@@ -67,7 +67,7 @@
         .photo {
             width: 200px;
             height: 200px;
-            margin-top: -120px;
+            margin-top: -160px;
             border-radius: 100px;
             border: 4px solid #fff;
         }
@@ -258,7 +258,7 @@
                             <div class="active"></div>
                         </div>
 
-                        <form enctype="multipart/form-data" action="<?php echo base_url('karyawan/aksi_ubah_akun') ?>"
+                        <form enctype="multipart/form-data" action="<?php echo base_url('admin/aksi_ubah_akun') ?>"
                             action="">
                             <h4 class="name">
                                 <?php echo $row->username ?>
@@ -270,7 +270,7 @@
                                 <?php echo $row->email ?>
                             </p>
                             <div class="stats row">
-                                <div class="stat col-xs-4" style="padding-right: 50px;">
+                                <!-- <div class="stat col-xs-4" style="padding-right: 50px;">
                                     <p class="number-stat">3,619</p>
                                     <p class="desc-stat">Followers</p>
                                 </div>
@@ -281,10 +281,10 @@
                                 <div class="stat col-xs-4" style="padding-left: 50px;">
                                     <p class="number-stat">38</p>
                                     <p class="desc-stat">Uploads</p>
-                                </div>
+                                </div> -->
                             </div>
-                            <p class="desc">Hi ! My name is Jane Doe. I'm a UI/UX Designer from Paris, in France. I really
-                                enjoy photography and mountains.</p>
+                            <!-- <p class="desc">Hi ! My name is Jane Doe. I'm a UI/UX Designer from Paris, in France. I really
+                                enjoy photography and mountains.</p> -->
                         </form>
                         <div class="social">
                             <i class="fa fa-facebook-square" aria-hidden="true"></i>
@@ -295,39 +295,48 @@
                     </div>
                     <div class="right col-lg-8">
                         <ul class="nav">
-                            <li>Gallery</li>
+                            <li data-show="ubah_password"> Gallery</li>
                             <li>Collections</li>
                             <li>Groups</li>
                             <li>About</li>
                         </ul>
-                       <a href="<?php echo base_url('karyawan/')?>"><span class="follow">Back</span></a> 
-                        <div class="row gallery">
-                            <div class="col-md-4">
-                                <img
-                                    src="https://images.pexels.com/photos/1036371/pexels-photo-1036371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+                        <a href="<?php echo base_url('karyawan/') ?>"><span class="follow">Back</span></a>
+                        <div id="ubah_password" class="">
+                            <div class="card shadow border-0 mb-7" style="margin:2rem 5px;">
+                                <div class="card-header">
+                                    <h5 class="mb-0">Ubah Password</h5>
+                                </div>
+                                <div class="table-responsive">
+                                    <form class="form-menu-absen" style="margin: 30px 20px 20px;">
+                                        <div class="row">
+                                            <div class="mb-3 col-6">
+                                                <label for="nama" class="form-label bold">Password Lama</label>
+                                                <input value="" type="text" class="form-control" id="lama" name="password_lama"
+                                                    aria-describedby="nama">
+                                            </div>
+                                            <div class="mb-3 col-6">
+                                                <label for="nama" class="form-label bold">Password Baru</label>
+                                                <input value="" type="text" class="form-control" id="baru" name="password_baru"
+                                                    aria-describedby="nama">
+                                            </div>
+                                            <div class="mb-3 col-6">
+                                                <label for="nama" class="form-label bold">Konfirmasi Password</label>
+                                                <input value="" type="text" class="form-control"  id="konfirmasi" name="konfirmasi_password"
+                                                    aria-describedby="nama">
+                                            </div>
+                                        </div>
+
+                                        <button name="submit" type="submit"
+                                            class="btn d-inline-flex btn-sm btn-primary mx-1">
+
+                                            <span>Submit</span>
+                                        </button>
+                                    </form>
+                                </div>
+                                <!-- <div class="card-footer border-0 py-5">
+                                </div> -->
                             </div>
-                            <div class="col-md-4">
-                                <img
-                                    src="https://images.pexels.com/photos/861034/pexels-photo-861034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-                            </div>
-                            <div class="col-md-4">
-                                <img
-                                    src="https://images.pexels.com/photos/113338/pexels-photo-113338.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-                            <!-- </div>
-                            <div class="col-md-4">
-                                <img
-                                    src="https://images.pexels.com/photos/5049/forest-trees-fog-foggy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-                            </div>
-                            <div class="col-md-4">
-                                <img
-                                    src="https://images.pexels.com/photos/428431/pexels-photo-428431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-                            </div>
-                            <div class="col-md-4">
-                                <img
-                                    src="https://images.pexels.com/photos/50859/pexels-photo-50859.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-                            </div> -->
                         </div>
-                    </div>
             </main>
         </div>
 

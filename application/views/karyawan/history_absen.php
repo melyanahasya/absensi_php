@@ -101,7 +101,7 @@
                                         <th scope="col" class="text-center">Date</th>
                                         <th scope="col" class="text-center">Jam Masuk</th>
                                         <th scope="col" class="text-center">Jam Pulang</th>
-                                        <th scope="col" class="text-center">Keterangan</th>
+                                        <th scope="col" class="text-center">Keterangan Izin</th>
                                         <th scope="col" class="text-center">Status</th>
 
                                         <th scope="col" class="text-center">Aksi</th>
@@ -141,33 +141,44 @@
                                                     echo $row->jam_pulang;
                                                 } ?>
                                             </td>
-                                            <td data-cell="Keterangan">
-                                                <?php echo $row->keterangan; ?>
+                                            <td data-cell="Keterangan Izin">
+                                                <?php if ($row->keterangan_izin == NULL) {
+                                                    echo '-';
+                                                } else {
+                                                    echo $row->keterangan_izin;
+                                                } ?>
                                             </td>
                                             <td data-cell="Status">
-                                                <?php echo $row->status; ?>
+                                                <?php if ($row->status == NULL) {
+                                                    echo 'not';
+                                                } else {
+                                                    echo $row->status;
+                                                } ?>
                                             </td>
                                             <td data-cell="Aksi" class="text-end aksi_history">
-                                                <a href="<?php echo base_url('karyawan/menu_absen/') . $row->id ?>"
+                                                <a href="<?php echo base_url('karyawan/ubah_history_absen/') . $row->id ?>"
                                                     class="btn btn-sm btn-square btn-neutral text-danger-hover btn-edit"> <i
                                                         class="bi bi-pen"></i></a>
                                                 <!-- <button type="button"
                                                     class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                     <i class="bi bi-check"></i>
                                                 </button> -->
+
                                                 <?php
                                                 if ($row->status == 'done') {
-                                                    echo '<div>  <button disabled" class="btn btn-sm btn-square btn-neutral text-danger-hover">  <i class="bi bi-check"></i>  </button> 
+                                                    echo '<div>  <button disabled" class="btn btn-sm btn-square btn-neutral text-danger-hover opacity-50">  <i class="bi bi-check"></i>  </button> 
                                                     </div>';
                                                 } else {
                                                     echo '<div>
-                        <buttononclick= "pulang(' . $row->id . ')"
+                        <button onclick= "pulang(' . $row->id . ')"
                         class="btn btn-sm btn-square btn-neutral text-danger-hover">
                         <i class="bi bi-check"></i>
                         </button>
                        </div>';
                                                 }
                                                 ?>
+
+                                              
                                                 <button onclick="hapus(<?php echo $row->id ?>)" type="button"
                                                     class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                     <i class="bi bi-trash"></i>
