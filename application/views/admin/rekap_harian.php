@@ -17,20 +17,20 @@
 
         .header-data-karyawan {
             display: flex;
-            gap: 43rem;
+            /* gap: 43rem; */
         }
-/* 
+
         .btn-export {
             height: 2.3rem;
             margin-left: 20px;
         }
 
-        .form-select {
-            width: 9.8rem;
+        .form-select-recap {
+            width: 8.9rem;
             height: 2.7rem;
             font-size: small;
-            margin-left: 32rem;
-        } */
+            margin-left: 36rem;
+        }
 
         @media (max-width: 600px) {
             .header-data-karyawan {
@@ -51,9 +51,11 @@
 
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+        <?php include('sidebar.php'); ?>
         <!-- Main content -->
         <div class="h-screen flex-grow-1 overflow-y-lg-auto">
             <!-- Header -->
+            <?php include('navbar.php'); ?>
 
             <!-- Main -->
             <main class="py-6 bg-surface-secondary">
@@ -63,24 +65,10 @@
                         <div class="card-header">
 
                             <div class="header-data-karyawan">
-                                <h5 class="mb-0"> Data Karyawan</h5>
+                                <h5 class="mb-0">Rekap Data Harian</h5>
 
-                                <!-- <select name="kelas" class="form-select" aria-label="Default select example">
-                                    <option selected>pilih rekap</option>
 
-                                    <option value="">
-                                        Harian
-                                    </option>
-                                    <option value="">
-                                        Mingguan
-                                    </option>
-                                    <option value="">
-                                        Bulanan
-                                    </option>
-
-                                </select> -->
-                                <a href="<?php echo base_url('/admin/export') ?>" type="button"
-                                    class="btn btn-sm btn-primary  btn-export">
+                                <a href="" type="button" class="btn btn-sm btn-primary  btn-export">
                                     export
                                 </a>
                             </div>
@@ -91,35 +79,39 @@
 
                                     <tr>
                                         <th scope="col" class="text-center">No</th>
-                                        <th scope="col" class="text-center">Nama Karyawan</th>
-                                        <th scope="col" class="text-center">Email</th>
-                                        <th scope="col" class="text-center">Nama Lengkap</th>
-                                        
+                                        <th scope="col" class="text-center">Kegiatan</th>
+                                        <th scope="col" class="text-center">Date</th>
+                                        <th scope="col" class="text-center">Jam Masuk</th>
+                                        <th scope="col" class="text-center">Jam Pulang</th>
+                                        <th scope="col" class="text-center">Keterangan Izin</th>
 
                                     </tr>
 
                                 </thead>
                                 <tbody>
                                     <?php $no = 0;
-                                    foreach ($result as $row):
+                                    foreach ($absensi as $row):
                                         $no++ ?>
                                         <tr>
 
                                             <td>
                                                 <?php echo $no ?>
                                             </td>
-
                                             <td>
-                                                <?php echo $row->username ?>
+                                                <?php echo $row->kegiatan ?>
                                             </td>
                                             <td>
-                                                <?php echo $row->email; ?>
+                                                <?php echo $row->date ?>
                                             </td>
                                             <td>
-                                                <?php echo $row->nama_depan.' '.$row->nama_belakang; ?>
+                                                <?php echo $row->jam_masuk ?>
                                             </td>
-                                           
-
+                                            <td>
+                                                <?php echo $row->jam_pulang ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row->keterangan_izin ?>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -133,6 +125,8 @@
             </main>
         </div>
     </div>
+
+  
 </body>
 
 </html>

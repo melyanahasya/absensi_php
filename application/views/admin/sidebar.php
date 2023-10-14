@@ -31,7 +31,7 @@
             </button>
             <!-- Brand -->
             <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-                <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" alt="...">
+                <img src="https://findlogovector.com/wp-content/uploads/2019/03/absen-logo-vector.png" alt="...">
             </a>
             <!-- User menu (mobile) -->
             <div class="navbar-user d-lg-none">
@@ -62,24 +62,24 @@
                 <!-- Navigation -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="<?php echo base_url('admin/')?>">
                             <i class="bi bi-house"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-bar-chart"></i> History Absen
+                        <a class="nav-link" href="<?php echo base_url('admin/rekap_harian')?>">
+                            <i class="bi bi-bar-chart"></i> Rekap Data Harian
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-bar-chart"></i> Menu Absen
+                        <a class="nav-link" href="<?php echo base_url('admin/rekap_mingguan')?>">
+                            <i class="bi bi-bar-chart"></i> Rekap Data Mingguan
                         </a>
                     </li>
                    
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-bookmarks"></i> Menu Izin
+                        <a class="nav-link" href="<?php echo base_url('admin/rekap_bulanan')?>">
+                            <i class="bi bi-bar-chart"></i> Rekap Data Bulanan
                         </a>
                     </li>
                     <li class="nav-item">
@@ -97,7 +97,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="bi bi-person-square"></i> Account
+                            <i class="bi bi-person-square"></i> Akun
                         </a>
                     </li>
                     <li class="nav-item">

@@ -49,7 +49,7 @@ class Auth extends CI_Controller
             if ($this->session->userdata('role') == 'admin') {
                 redirect(base_url() . "admin/");
             } elseif ($this->session->userdata('role') == 'karyawan') {
-                redirect(base_url()."karyawan/");
+                redirect(base_url() . "karyawan/");
             } else {
                 redirect(base_url() . "admin/");
             }
@@ -58,8 +58,9 @@ class Auth extends CI_Controller
         }
     }
 
-   
-    public function register_admin() {
+
+    public function register_admin()
+    {
         // Validasi form
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('username', 'Username', 'required');
@@ -79,16 +80,17 @@ class Auth extends CI_Controller
             $nama_belakang = $this->input->post('nama_belakang');
             $role = $this->input->post('role');
             $password = md5($this->input->post('password'));
-        
+
             // Panggil model untuk menyimpan data ke database
-            $this->m_model->register_admin($email,$username,$nama_depan, $nama_belakang, $role, $password);
+            $this->m_model->register_admin($email, $username, $nama_depan, $nama_belakang, $role, $password);
 
             // Redirect ke halaman sukses atau login
             redirect('auth'); // Gantilah 'login' dengan halaman yang sesuai
         }
     }
 
-    public function register_karyawan() {
+    public function register_karyawan()
+    {
         // Validasi form
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('username', 'Username', 'required');
@@ -108,15 +110,15 @@ class Auth extends CI_Controller
             $nama_belakang = $this->input->post('nama_belakang');
             $role = $this->input->post('role');
             $password = md5($this->input->post('password'));
-        
+
             // Panggil model untuk menyimpan data ke database
-            $this->m_model->register_karyawan($email,$username,$nama_depan, $nama_belakang, $role, $password);
+            $this->m_model->register_karyawan($email, $username, $nama_depan, $nama_belakang, $role, $password);
 
             // Redirect ke halaman sukses atau login
             redirect('auth'); // Gantilah 'login' dengan halaman yang sesuai
         }
     }
-   
+
     function logout()
     {
         $this->session->sess_destroy();

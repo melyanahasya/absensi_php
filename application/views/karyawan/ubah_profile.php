@@ -67,7 +67,7 @@
         .photo {
             width: 200px;
             height: 200px;
-            margin-top: -200px;
+            margin-top: -286px;
             border-radius: 100px;
             border: 4px solid #fff;
         }
@@ -113,6 +113,7 @@
             border-bottom: 1px solid #ededed;
             font-family: 'Montserrat', sans-serif;
         }
+
 
         .number-stat {
             padding: 0px;
@@ -215,7 +216,6 @@
                 display: none;
             }
 
-
             .follow {
                 width: 50%;
                 margin-left: 25%;
@@ -233,12 +233,13 @@
             }
 
             .name {
-                margin-top: 10px;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 600;
-                font-size: 18pt;
-                color: #777;
-            }
+            margin-top: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 18pt;
+            color: #777;
+        }
+
         }
 
         .gallery {
@@ -275,8 +276,7 @@
                                 <div class="active"></div>
                             </div>
                         <?php endforeach ?>
-
-                        <form enctype="multipart/form-data" action="<?php echo base_url('admin/aksi_ubah_password') ?>"
+                        <form enctype="multipart/form-data" action="<?php echo base_url('admin/aksi_ubah_akun') ?>"
                             action="">
                             <h4 class="name">
                                 <?php echo $row->username ?>
@@ -288,7 +288,6 @@
                                 <?php echo $row->email ?>
                             </p>
                             <div class="stats row">
-
                             </div>
 
                         </form>
@@ -299,53 +298,64 @@
                             <i class="fa fa-tumblr-square" aria-hidden="true"></i>
                         </div>
                     </div>
-
                     <div class="right col-lg-8">
                         <ul class="nav">
-                            <li><a href="<?php echo base_url('karyawan/ubah_profile') ?>"> Ubah Profile</a></li>
-                            <li><a href="<?php echo base_url('karyawan/profile') ?>"> Ubah Password</a></li>
-                            <li><a href="">Groups</a></li>
+                            <ul class="nav">
+                                <li><a href="<?php echo base_url('karyawan/ubah_profile') ?>"> Ubah Profile</a></li>
+                                <li><a href="<?php echo base_url('karyawan/profile') ?>"> Ubah Password</a></li>
+                                <li><a href="">Groups</a></li>
+                            </ul>
                         </ul>
-
-
                         <a href="<?php echo base_url('karyawan/') ?>"><span class="follow">Back</span></a>
                         <div id="ubah_password" class="">
                             <div class="card shadow border-0 mb-7" style="margin:2rem 5px;">
                                 <div class="card-header">
-                                    <h5 class="mb-0">Ubah Password</h5>
+                                    <h5 class="mb-0">Ubah Profile</h5>
                                 </div>
                                 <div class="table-responsive">
-                                    <form method="post" enctype="multipart/form-data"
-                                        action="<?php echo base_url('karyawan/aksi_ubah_password') ?>"
-                                        class="form-menu-absen" style="margin: 30px 20px 20px;">
-                                        <div class="row">
-                                            <div class="mb-3 col-6">
-                                                <label for="nama" class="form-label bold">Password Lama</label>
-                                                <input value="" type="text" class="form-control" id="lama"
-                                                    name="password_lama" aria-describedby="nama">
-                                            </div>
-                                            <div class="mb-3 col-6">
-                                                <label for="nama" class="form-label bold">Password Baru</label>
-                                                <input value="" type="text" class="form-control" id="baru"
-                                                    name="password_baru" aria-describedby="nama">
-                                            </div>
-                                            <div class="mb-3 col-6">
-                                                <label for="nama" class="form-label bold">Konfirmasi Password</label>
-                                                <input value="" type="text" class="form-control" id="konfirmasi"
-                                                    name="konfirmasi_password" aria-describedby="nama">
+                                    <?php foreach ($user as $data): ?>
+                                        <form method="post" action="<?php echo base_url('karyawan/aksi_ubah_profile') ?>"
+                                            class="form-menu-absen" style="margin: 30px 20px 20px;">
+                                            <div class="row">
+                                                <div class="mb-3 col-6">
+                                                    <label for="email" class="form-label bold">Email</label>
+                                                    <input value="<?php echo $data->email ?>" type="text" class="form-control"
+                                                        id="email" name="email" aria-describedby="email">
+                                                </div>
+                                                <div class="mb-3 col-6">
+                                                    <label for="username" class="form-label bold">username</label>
+                                                    <input value="<?php echo $data->username ?>" type="text"
+                                                        class="form-control" id="username" name="username"
+                                                        aria-describedby="username">
+                                                </div>
+                                                <div class="mb-3 col-6">
+                                                    <label for="nama_depan" class="form-label bold">Nama Depan</label>
+                                                    <input value="<?php echo $data->nama_depan ?>" type="text"
+                                                        class="form-control" id="nama_depan" name="nama_depan"
+                                                        aria-describedby="nama_depan">
+                                                </div>
+                                                <div class="mb-3 col-6">
+                                                    <label for="nama_belakang" class="form-label bold">Nama Belakang</label>
+                                                    <input value="<?php echo $data->nama_belakang ?>" type="text"
+                                                        class="form-control" id="nama_belakang" name="nama_belakang"
+                                                        aria-describedby="nama_belakang">
+                                                </div>
+                                                <div class="mb-3 col-6">
+                                                    <label for="image" class="form-label bold">Image</label>
+                                                    <input value="" type="file" class="form-control" id="image" name="image"
+                                                        aria-describedby="image">
+                                                </div>
                                             </div>
 
-                                        </div>
+                                            <button name="submit" type="submit"
+                                                class="btn d-inline-flex btn-sm btn-primary mx-1">
 
-                                        <button name="submit" type="submit"
-                                            class="btn d-inline-flex btn-sm btn-primary mx-1">
-
-                                            <span>Submit</span>
-                                        </button>
-                                    </form>
+                                                <span>Submit</span>
+                                            </button>
+                                        </form>
+                                    <?php endforeach ?>
                                 </div>
-                                <!-- <div class="card-footer border-0 py-5">
-                                </div> -->
+
                             </div>
                         </div>
             </main>

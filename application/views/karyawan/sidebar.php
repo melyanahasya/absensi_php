@@ -97,7 +97,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('karyawan/profile')?>">
-                            <i class="bi bi-person-square"></i> Account
+                            <i class="bi bi-person-square"></i> Akun
                         </a>
                     </li>
                     <li class="nav-item">
