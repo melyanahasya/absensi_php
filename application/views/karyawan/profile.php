@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+        
     <style>
         html,
         body {
@@ -67,7 +68,7 @@
         .photo {
             width: 200px;
             height: 200px;
-            margin-top: -200px;
+            margin-top: -286px;
             border-radius: 100px;
             border: 4px solid #fff;
         }
@@ -304,7 +305,7 @@
                         <ul class="nav">
                             <li><a href="<?php echo base_url('karyawan/ubah_profile') ?>"> Ubah Profile</a></li>
                             <li><a href="<?php echo base_url('karyawan/profile') ?>"> Ubah Password</a></li>
-                            <li><a href="">Groups</a></li>
+                            <li><a href="<?php echo base_url('karyawan/ubah_foto') ?>">Ubah Foto</a></li>
                         </ul>
 
 
@@ -321,17 +322,18 @@
                                         <div class="row">
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Password Lama</label>
-                                                <input value="" type="text" class="form-control" id="lama"
+                                                <i class="password-toggle fa fa-eye-slash" onclick="togglePassword()"></i>
+                                                <input value="" type="password" class="form-control" id="lama"
                                                     name="password_lama" aria-describedby="nama">
                                             </div>
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Password Baru</label>
-                                                <input value="" type="text" class="form-control" id="baru"
+                                                <input value="" type="password" class="form-control" id="baru"
                                                     name="password_baru" aria-describedby="nama">
                                             </div>
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Konfirmasi Password</label>
-                                                <input value="" type="text" class="form-control" id="konfirmasi"
+                                                <input value="" type="password" class="form-control" id="konfirmasi"
                                                     name="konfirmasi_password" aria-describedby="nama">
                                             </div>
 
@@ -351,7 +353,27 @@
             </main>
         </div>
 
+
     <?php endforeach ?>
+    <script type="text/javascript">
+        function togglePassword() {
+            var passwordField = document.getElementById('password');
+            var passwordToggle = document.querySelector('.password-toggle');
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+
+
+            } else {
+                passwordField.type = "password";
+                passwordToggle.classList.add('fa-eye-slash');
+                passwordToggle.classList.remove('fa-eye');
+
+            }
+        }
+    </script>
 </body>
 
 </html>

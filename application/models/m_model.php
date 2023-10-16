@@ -146,8 +146,11 @@ class M_model extends CI_Model
     // rekap harian
     public function getDailyData($date)
     {
+        $this->db->select('absensi.*, user.nama_depan, user.nama_belakang');
+        $this->db->from('absensi');
+        $this->db->join('user', 'absensi.id_kayawan = user.id', 'left');
         $this->db->where('date', $date);
-        $query = $this->db->get('absensi');
+        $query = $this->db->get();
         return $query->result();
     }
 
@@ -157,8 +160,10 @@ class M_model extends CI_Model
         $this->load->database();
         $end_date = date('Y-m-d');
         $start_date = date('Y-m-d', strtotime('-7 days', strtotime($end_date)));
-        $query = $this->db->select('kegiatan ,date , jam_masuk, jam_pulang, keterangan_izin, status, COUNT(*) AS total_absences')
+        // $query = $this->db->select('kegiatan ,date , jam_masuk, jam_pulang, keterangan_izin, status, COUNT(*) AS total_absences')
+        $query = $this->db->select('absensi.*,user.nama_depan, user.nama_belakang, COUNT(*) AS total_absences')
             ->from('absensi')
+            ->join('user', 'absensi.id_kayawan = user.id', 'left')
             ->where('date >=', $start_date)
             ->where('date <=', $end_date)
             ->group_by('kegiatan ,date , jam_masuk, jam_pulang, keterangan_izin, status')
@@ -167,12 +172,12 @@ class M_model extends CI_Model
     }
 
     // rekap bulanan
-    public function getAbsensiMonth($date)
+    public function getAbsensiMonth($bulan)
     {
         $this->db->select('absensi.*,user.nama_depan, user.nama_belakang');
         $this->db->from('absensi');
         $this->db->join('user', 'absensi.id_kayawan = user.id', 'left');
-        $this->db->where("DATE_FORMAT(absensi.date, '%m') =", $date);
+        $this->db->where("DATE_FORMAT(date, '%m') =", $bulan);
         $query = $this->db->get();
         return $query->result();
     }

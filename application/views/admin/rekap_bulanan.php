@@ -63,7 +63,7 @@
                             <div class="header-data-karyawan">
                                 <h5 class="mb-0">Rekap Data Bulanan</h5>
 
-                                <form action="<?php echo base_url('admin/rekap_bulanan') ?>" method="post">
+                                <form action="<?php echo base_url('admin/export_bulanan') ?>" method="post">
                                     <div class="select-bulan flex flex-wrap justify-center col-span-2">
                                         <select name="bulan" id="bulan"
                                             class="custom-select custom-select-md  rounded-md border p-2 text-black">
@@ -83,6 +83,7 @@
                                         </select>
                                     </div>
                                 </form>
+                                
                                 <a href="<?php echo base_url('admin/export_bulanan')?>" type="button" class="btn btn-sm btn-primary  btn-export-bulanan">
                                     export
                                 </a>

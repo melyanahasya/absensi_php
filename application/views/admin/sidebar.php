@@ -67,6 +67,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url('admin/rekap_data_keseluruhan')?>">
+                            <i class="bi bi-bar-chart"></i> Rekap Data Keseluruhan
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('admin/rekap_harian')?>">
                             <i class="bi bi-bar-chart"></i> Rekap Data Harian
                         </a>

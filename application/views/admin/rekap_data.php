@@ -32,6 +32,11 @@
             margin-left: 36rem;
         }
 
+        .header-export-k {
+            display: flex;
+            gap: 43rem;
+        }
+
         @media (max-width: 600px) {
             .header-data-karyawan {
                 gap: 3rem;
@@ -39,6 +44,10 @@
 
             .btn-export {
                 height: 2rem;
+            }
+
+            .header-export-k {
+                gap: 1.3rem;
             }
         }
     </style>
@@ -65,26 +74,14 @@
                         <div class="card-header">
 
                             <div class="header-data-karyawan">
-                                <h5 class="mb-0">Rekap Data Karyawan</h5>
+                                <div class="header-export-k">
+                                    <h5 class="mb-0">Rekap Data Keseluruhan</h5>
 
-                                <!-- <select name="" class="form-select-recap" aria-label="Default select example">
-                                    <option selected>pilih rekap</option>
-
-                                    <option value="">
-                                        Harian
-                                    </option>
-                                    <option value="">
-                                        Mingguan
-                                    </option>
-                                    <option value="">
-                                        Bulanan
-                                    </option>
-
-                                </select> -->
-                                <a href="<?php echo base_url('/admin/export_rekap_karyawan') ?>" type="button"
-                                    class="btn btn-sm btn-primary  btn-export">
-                                    export
-                                </a>
+                                    <a href="<?php echo base_url('admin/export_keseluruhan') ?>" type="button"
+                                        class="btn btn-sm btn-primary  btn-export">
+                                        export
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="table-responsive">

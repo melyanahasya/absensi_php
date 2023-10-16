@@ -68,7 +68,7 @@
                                 <h5 class="mb-0">Rekap Data Harian</h5>
 
 
-                                <a href="" type="button" class="btn btn-sm btn-primary  btn-export">
+                                <a href="<?php echo base_url('admin/export_harian')?>" type="button" class="btn btn-sm btn-primary  btn-export">
                                     export
                                 </a>
                             </div>
@@ -79,6 +79,7 @@
 
                                     <tr>
                                         <th scope="col" class="text-center">No</th>
+                                        <th scope="col" class="text-center">Nama Karyawan</th>
                                         <th scope="col" class="text-center">Kegiatan</th>
                                         <th scope="col" class="text-center">Date</th>
                                         <th scope="col" class="text-center">Jam Masuk</th>
@@ -96,6 +97,9 @@
 
                                             <td>
                                                 <?php echo $no ?>
+                                            </td>
+                                            <td>
+                                            <?php echo $row->nama_depan . ' ' . $row->nama_belakang ?>
                                             </td>
                                             <td>
                                                 <?php echo $row->kegiatan ?>
