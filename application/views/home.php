@@ -25,6 +25,8 @@
             padding: 0 4em 5em;
         }
 
+        .header-baca {}
+
         h1,
         h2,
         h3 {
@@ -1179,6 +1181,11 @@
             footer {
                 padding: 3em 2em 2em;
             }
+
+            .header-baca {
+                margin-top: 30px;
+                width: 30rem;
+            }
         }
 
         /* Smartphones (portrait and landscape) ----------- */
@@ -1380,7 +1387,7 @@
                 <img src="https://www.dropbox.com/s/ipx91osglyczpdt/delivery_experience.svg?raw=1"
                     alt="Productivity Delivering Experience" title="Delivering Experience Since 2009" />
             </div>
-            <div class="col-7">
+            <div class="col-12 header-baca">
                 <h2>Baca artikel dibawah ini untuk menambah pengetahuan anda</h2>
 
                 <div>
@@ -1396,21 +1403,8 @@
                     </p>
 
                 </div>
-
-                <div class="btn-footer">
-                    <a href="" class="brand-btn">Contact Us</a>
-                </div>
             </div>
         </section>
-
-
-
-
-
-
-
-
-
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="ScriptIT.js"></script>

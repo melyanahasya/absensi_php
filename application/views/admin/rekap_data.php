@@ -17,7 +17,6 @@
 
         .header-data-karyawan {
             display: flex;
-            /* gap: 43rem; */
         }
 
         .btn-export {
@@ -38,6 +37,48 @@
         }
 
         @media (max-width: 600px) {
+            .btn-edit {
+                margin-left: 5rem;
+            }
+
+            tbody {
+                text-align: left;
+            }
+
+            .option-select {
+                font-size: 12px;
+            }
+
+            .td {
+                padding-right: none;
+                display: flex;
+                justify-content: left;
+            }
+
+            .responsive-3 {
+                width: 100%;
+            }
+
+            th {
+                display: none;
+            }
+
+            td {
+                display: grid;
+                gap: 0.5rem;
+                grid-template-columns: 15ch auto;
+                padding: 0.75em 1rem;
+            }
+
+            td:first-child {
+                padding-top: 2rem;
+            }
+
+            td::before {
+                content: attr(data-cell) "  : ";
+                font-weight: bold;
+            }
+
             .header-data-karyawan {
                 gap: 3rem;
             }
@@ -50,6 +91,7 @@
                 gap: 1.3rem;
             }
         }
+
     </style>
 </head>
 
@@ -107,29 +149,29 @@
                                         $no++ ?>
                                         <tr>
 
-                                            <td>
+                                            <td data-cell="No">
                                                 <?php echo $no ?>
                                             </td>
 
-                                            <td>
+                                            <td data-cell="Nama Karyawan">
                                                 <?php echo $row->nama_depan . ' ' . $row->nama_belakang; ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Kegiatan">
                                                 <?php echo $row->kegiatan; ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Date">
                                                 <?php echo $row->date; ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Jam Masuk">
                                                 <?php echo $row->jam_masuk; ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Jam Pulang">
                                                 <?php echo $row->jam_pulang; ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Keterangan">
                                                 <?php echo $row->keterangan_izin; ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Status">
                                                 <?php echo $row->status; ?>
                                             </td>
 
@@ -139,7 +181,6 @@
                             </table>
                         </div>
                         <div class="card-footer border-0 py-5">
-                            <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
                         </div>
                     </div>
                 </div>

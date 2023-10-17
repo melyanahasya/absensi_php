@@ -284,6 +284,7 @@
                             </h4>
                             <p class="info">
                                 <?php echo $row->nama_depan . ' ' . $row->nama_belakang ?>
+                           
                             </p>
                             <p class="info">
                                 <?php echo $row->email ?>

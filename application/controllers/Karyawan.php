@@ -14,12 +14,13 @@ class Karyawan extends CI_Controller
             redirect(base_url() . 'auth');
         }
     }
-
-    public function index()
+    
+        public function index()
     {
         $data['absen'] = $this->m_model->get_history('absensi', $this->session->userdata('id'))->result();
         $data['total_absen'] = $this->m_model->get_absen('absensi', $this->session->userdata('id'))->num_rows();
         $data['total_izin'] = $this->m_model->get_izin('absensi', $this->session->userdata('id'))->num_rows();
+        $data['total_karyawan'] = $this->m_model->get_data('user')->num_rows();
 
         // untuk get data karyawan yang login
         $idKaryawan = $this->session->userdata('id');

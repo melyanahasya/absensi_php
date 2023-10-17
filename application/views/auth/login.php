@@ -19,8 +19,12 @@
             top: 50%;
             transform: translateY(-50%);
             right: 10px;
-            /* Anda bisa menyesuaikan jarak kanan sesuai kebutuhan */
             cursor: pointer;
+        }
+
+        .btn {
+            margin-top: 1rem;
+            margin-left: 7rem;
         }
 
         :root {
@@ -125,12 +129,24 @@
             .theme-container .msg p {
                 margin-left: 16rem;
                 font-size: 1.6rem;
-
             }
+
+            .contact-form {
+                margin-right: 6rem;
+            }
+
+          
 
             .theme-container .msg {
                 margin-top: 20%;
 
+            }
+        }
+
+        @media (max-width: 600px) { 
+              .btn {
+                margin-top: 1rem;
+                margin-left: -1rem;
             }
         }
 
@@ -221,6 +237,7 @@
         /* From uiverse.io by @alexmaracinaru */
         .btn {
             margin-top: 1rem;
+            margin-right: 6rem;
         }
 
         .cta {
@@ -397,7 +414,6 @@
             DARK MODE
         </label>
 
-        <!-- Content here START -->
         <div class="cat">
             <img src="https://res.cloudinary.com/liquidtime/image/upload/v1653476648/cat-walk_meqsv9.gif" alt="">
         </div>
@@ -406,7 +422,7 @@
         <div class="contact-con">
             <div class="contact">
                 <p>Sign in</p>
-                <!-- Auth/aksi_login berasal dari file Auth.php controllers -->
+
                 <form action="<?php echo base_url(); ?>Auth/aksi_login" method="post" class="contact-form"
                     autocomplete="off">
                     <div class="input-group first">
@@ -434,9 +450,8 @@
 
 
             </div>
-            <!-- <p>belum punya akun?</p> -->
             <div class="btn">
-                <a href="/absensi/auth/register" type="submit" class="cta" id="btn">
+                <a href="/absensi/auth/register_karyawan" type="submit" class="cta" id="btn">
                     <span class="hover-underline-animation"> Register </span>
                     <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10"
                         viewBox="0 0 46 16">

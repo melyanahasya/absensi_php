@@ -87,11 +87,7 @@
                             <i class="bi bi-bar-chart"></i> Rekap Data Bulanan
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-people"></i> Users
-                        </a>
-                    </li>
+                    
                 </ul>
                 <!-- Divider -->
                 <hr class="navbar-divider my-5 opacity-20">
@@ -100,11 +96,7 @@
                 <div class="mt-auto"></div>
                 <!-- User (md) -->
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-person-square"></i> Akun
-                        </a>
-                    </li>
+                   
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('auth/logout'); ?>">
                             <i class="bi bi-box-arrow-left"></i> Logout

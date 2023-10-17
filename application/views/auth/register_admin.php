@@ -33,7 +33,6 @@
             text-decoration: none;
         }
 
-        /* Allows the body's children to grow to 100% of the viewport's height */
         html,
         body {
             height: 100%;
@@ -55,8 +54,12 @@
             top: 50%;
             transform: translateY(-50%);
             right: 10px;
-            /* Anda bisa menyesuaikan jarak kanan sesuai kebutuhan */
             cursor: pointer;
+        }
+
+        .btn {
+            margin-top: 1rem;
+            margin-left: 5.5rem;
         }
 
         .theme-container {
@@ -129,12 +132,21 @@
             .theme-container .msg p {
                 margin-left: 16rem;
                 font-size: 1.6rem;
+            }
 
+            .contact-form {
+                margin-right: 6rem;
             }
 
             .theme-container .msg {
                 margin-top: 20%;
-
+            }
+        }
+        
+        @media (max-width: 600px) { 
+              .btn {
+                margin-top: 1rem;
+                margin-left: -1rem;
             }
         }
 
@@ -226,6 +238,7 @@
         /* From uiverse.io by @alexmaracinaru */
         .btn {
             margin-top: 1rem;
+            margin-right: 6rem;
         }
 
         .cta {

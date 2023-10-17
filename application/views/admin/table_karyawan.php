@@ -19,20 +19,50 @@
             display: flex;
             gap: 43rem;
         }
-/* 
-        .btn-export {
-            height: 2.3rem;
-            margin-left: 20px;
-        }
-
-        .form-select {
-            width: 9.8rem;
-            height: 2.7rem;
-            font-size: small;
-            margin-left: 32rem;
-        } */
 
         @media (max-width: 600px) {
+            .btn-edit {
+                margin-left: 5rem;
+            }
+
+            tbody {
+                text-align: left;
+            }
+
+            .option-select {
+                font-size: 12px;
+            }
+
+            .td {
+                padding-right: none;
+                display: flex;
+                justify-content: left;
+            }
+
+            .responsive-3 {
+                width: 100%;
+            }
+
+            th {
+                display: none;
+            }
+
+            td {
+                display: grid;
+                gap: 0.5rem;
+                grid-template-columns: 15ch auto;
+                padding: 0.75em 1rem;
+            }
+
+            td:first-child {
+                padding-top: 2rem;
+            }
+
+            td::before {
+                content: attr(data-cell) "  : ";
+                font-weight: bold;
+            }
+
             .header-data-karyawan {
                 gap: 3rem;
             }
@@ -65,20 +95,6 @@
                             <div class="header-data-karyawan">
                                 <h5 class="mb-0"> Data Karyawan</h5>
 
-                                <!-- <select name="kelas" class="form-select" aria-label="Default select example">
-                                    <option selected>pilih rekap</option>
-
-                                    <option value="">
-                                        Harian
-                                    </option>
-                                    <option value="">
-                                        Mingguan
-                                    </option>
-                                    <option value="">
-                                        Bulanan
-                                    </option>
-
-                                </select> -->
                                 <a href="<?php echo base_url('/admin/export') ?>" type="button"
                                     class="btn btn-sm btn-primary  btn-export">
                                     export
@@ -94,7 +110,7 @@
                                         <th scope="col" class="text-center">Nama Karyawan</th>
                                         <th scope="col" class="text-center">Email</th>
                                         <th scope="col" class="text-center">Nama Lengkap</th>
-                                        
+
 
                                     </tr>
 
@@ -105,20 +121,20 @@
                                         $no++ ?>
                                         <tr>
 
-                                            <td>
+                                            <td data-cell="No">
                                                 <?php echo $no ?>
                                             </td>
 
-                                            <td>
+                                            <td data-cell="Username">
                                                 <?php echo $row->username ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Email">
                                                 <?php echo $row->email; ?>
                                             </td>
-                                            <td>
-                                                <?php echo $row->nama_depan.' '.$row->nama_belakang; ?>
+                                            <td data-cell="Nama Lengkap">
+                                                <?php echo $row->nama_depan . ' ' . $row->nama_belakang; ?>
                                             </td>
-                                           
+
 
                                         </tr>
                                     <?php endforeach; ?>
@@ -126,7 +142,6 @@
                             </table>
                         </div>
                         <div class="card-footer border-0 py-5">
-                            <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
                         </div>
                     </div>
                 </div>

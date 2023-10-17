@@ -14,7 +14,20 @@
 
         /* Bootstrap Icons */
         @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
-    </style>
+   
+        .card-k {
+            margin-left: 1.5rem;
+            width: 15rem;
+        }
+
+        @media (max-width: 600px) { 
+            
+        .card-k {
+            margin-left: 1.5rem;
+            width: 18.5rem;
+        }
+        }
+   </style>
 </head>
 
 <body>
@@ -33,9 +46,9 @@
             <main class="py-6 bg-surface-secondary">
                 <div class="container-fluid">
                     <!-- Card stats -->
-                    <div class="row g-6 mb-6">
+                    <div class="row g-6 mb-6 total-karyawan">
                         <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
+                            <div class="card shadow border-0 card-k">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
@@ -54,7 +67,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-sm-6 col-12">
+                        <!-- <div class="col-xl-3 col-sm-6 col-12">
                             <div class="card shadow border-0">
                                 <div class="card-body">
                                     <div class="row">
@@ -116,7 +129,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <?php include('table_karyawan.php'); ?>

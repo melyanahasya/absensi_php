@@ -82,11 +82,7 @@
                             <i class="bi bi-bar-chart"></i> Menu Izin
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-people"></i> Users
-                        </a>
-                    </li>
+                   
                 </ul>
                 <!-- Divider -->
                 <hr class="navbar-divider my-5 opacity-20">

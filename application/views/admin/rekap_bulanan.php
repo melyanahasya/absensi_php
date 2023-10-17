@@ -17,29 +17,100 @@
 
         .header-data-karyawan {
             display: flex;
-            /* gap: 43rem; */
+            /* gap: 30rem; */
         }
 
         .btn-export-bulanan {
             height: 2.3rem;
-            /* margin-left: 10px; */
+
         }
 
         .select-bulan {
             width: 9rem;
             height: 2.7rem;
             font-size: small;
-            margin-left: 38rem;
+        }
+
+        .form-bulan1 {
+            margin-left: 30rem;
+        }
+
+        .form-bulan2 {
+            margin-left: 0;
+            display: flex;
+            gap: 0;
         }
 
         @media (max-width: 600px) {
+            .btn-edit {
+                margin-left: 5rem;
+            }
+
+            tbody {
+                text-align: left;
+            }
+
+            .option-select {
+                font-size: 12px;
+            }
+
+            .td {
+                padding-right: none;
+                display: flex;
+                justify-content: left;
+            }
+
+            .responsive-3 {
+                width: 100%;
+            }
+
+            th {
+                display: none;
+            }
+
+            td {
+                display: grid;
+                gap: 0.5rem;
+                grid-template-columns: 15ch auto;
+                padding: 0.75em 1rem;
+            }
+
+            td:first-child {
+                padding-top: 2rem;
+            }
+
+            td::before {
+                content: attr(data-cell) "  : ";
+                font-weight: bold;
+            }
+
             .header-data-karyawan {
-                gap: 3rem;
+                gap: 2rem;
+                display: block;
             }
 
             .btn-export {
                 height: 2rem;
             }
+
+            .select-bulan {
+                width: 9rem;
+                height: 2.7rem;
+                font-size: small;
+                margin-left: 1rem;
+            }
+
+            .form-bulan1 {
+                margin-left: 0;
+                margin: 20px 5rem 1rem 0;
+            }
+
+            .form-bulan2 {
+                margin-left: 0;
+                margin: 10px 5rem 1rem 0;
+            }
+
+
         }
     </style>
 </head>
@@ -63,7 +134,8 @@
                             <div class="header-data-karyawan">
                                 <h5 class="mb-0">Rekap Data Bulanan</h5>
 
-                                <form action="<?php echo base_url('admin/export_bulanan') ?>" method="post">
+                                <form class="form-bulan1" action="<?php echo base_url('admin/rekap_bulanan') ?>"
+                                    method="post">
                                     <div class="select-bulan flex flex-wrap justify-center col-span-2">
                                         <select name="bulan" id="bulan"
                                             class="custom-select custom-select-md  rounded-md border p-2 text-black">
@@ -83,10 +155,33 @@
                                         </select>
                                     </div>
                                 </form>
-                                
-                                <a href="<?php echo base_url('admin/export_bulanan')?>" type="button" class="btn btn-sm btn-primary  btn-export-bulanan">
-                                    export
-                                </a>
+                                <form class="form-bulan2" action="<?php echo base_url('admin/export_bulanan') ?>"
+                                    method="post">
+
+                                    <div class="select-bulan flex flex-wrap justify-center col-span-2">
+                                        <select name="bulan" id="bulan"
+                                            class="custom-select custom-select-md  rounded-md border p-2 text-black">
+                                            <option selected>Pilih Bulan</option>
+                                            <option value="01">Januari</option>
+                                            <option value="02">Februari</option>
+                                            <option value="03">Maret</option>
+                                            <option value="04">April</option>
+                                            <option value="05">Mei</option>
+                                            <option value="06">Juni</option>
+                                            <option value="07">Juli</option>
+                                            <option value="08">Agustus</option>
+                                            <option value="09">September</option>
+                                            <option value="10">Oktober</option>
+                                            <option value="11">November</option>
+                                            <option value="12">Desember</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-sm btn-primary  btn-export-bulanan">
+                                        export
+                                    </button>
+                                </form>
+
+
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -109,25 +204,25 @@
                                     foreach ($absensi as $row):
                                         $no++ ?>
                                         <tr>
-                                            <td>
+                                            <td data-cell="No">
                                                 <?php echo $no ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="nama Karyawan">
                                                 <?php echo $row->nama_depan . ' ' . $row->nama_belakang ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Kegiatan">
                                                 <?php echo $row->kegiatan ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Date">
                                                 <?php echo $row->date ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Jam Masuk">
                                                 <?php echo $row->jam_masuk ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Jam Pulang">
                                                 <?php echo $row->jam_pulang ?>
                                             </td>
-                                            <td>
+                                            <td data-cell="Keterangan">
                                                 <?php echo $row->keterangan_izin ?>
                                             </td>
                                         </tr>
@@ -136,7 +231,6 @@
                             </table>
                         </div>
                         <div class="card-footer border-0 py-5">
-                            <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
                         </div>
                     </div>
                 </div>

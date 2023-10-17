@@ -80,12 +80,12 @@
                                     <div class="row">
                                         <div class="col">
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total
-                                                hours</span>
-                                            <span class="h3 font-bold mb-0">1.400</span>
+                                                Karyawan</span>
+                                            <span class="h3 font-bold mb-0"><?php echo $total_karyawan?></span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                                <i class="bi bi-clock-history"></i>
+                                                <i class="bi bi-people"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-sm-6 col-12">
+                        <!-- <div class="col-xl-3 col-sm-6 col-12">
                             <div class="card shadow border-0">
                                 <div class="card-body">
                                     <div class="row">
@@ -115,7 +115,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card shadow border-0 mb-7">
                     <div class="card-header">
@@ -192,7 +192,6 @@
                             </table>
                         </div>
                         <div class="card-footer border-0 py-5">
-                            <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
                         </div>
                     </div>
                 </div>
