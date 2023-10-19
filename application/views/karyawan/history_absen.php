@@ -224,7 +224,6 @@
         function pulang(id) {
             Swal.fire({
                 title: 'Apakah Ingin Pulang?',
-                // text: "Pastikan kegiatan sudah dilakukan!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
