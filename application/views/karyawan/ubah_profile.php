@@ -340,11 +340,6 @@
                                                         class="form-control" id="nama_belakang" name="nama_belakang"
                                                         aria-describedby="nama_belakang">
                                                 </div>
-                                                <!-- <div class="mb-3 col-6">
-                                                    <label for="image" class="form-label bold">Image</label>
-                                                    <input value="" type="file" class="form-control" id="image" name="image"
-                                                        aria-describedby="image">
-                                                </div> -->
                                             </div>
 
                                             <button name="submit" type="submit"
