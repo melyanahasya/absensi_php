@@ -75,7 +75,7 @@ class Karyawan extends CI_Controller
         }
     }
 
-    // hapus data
+    // function hapus data
     public function hapus($id)
     {
         $this->m_model->delete('absensi', 'id', $id);
