@@ -107,7 +107,7 @@ class Karyawan extends CI_Controller
             redirect(base_url('karyawan/menu_absen'));
         } else if ($validasi_izin > 0) {
             date_default_timezone_set('Asia/Jakarta');
-            $currenttime = date('Y-m-d H:i:s');
+            $currenttime = date('H:i:s');
             $data = [
                 'kegiatan' => $this->input->post('kegiatan'),
                 'id_kayawan' => $this->session->userdata('id'),
