@@ -421,7 +421,6 @@
             <img src="https://res.cloudinary.com/liquidtime/image/upload/v1653476648/cat-walk_meqsv9.gif" alt="">
         </div>
 
-
         <div class="contact-con">
             <div class="contact">
                 <p>Sign up Karyawan</p>
@@ -452,8 +451,6 @@
                     <div class="input-group ">
                         <input id="role" required="" value="karyawan" type="hidden" name="role" class="input">
                     </div>
-
-
 
             </div>
 

@@ -16,7 +16,7 @@ class Karyawan extends CI_Controller
         }
     }
 
-    // tampilan awal
+    // tampilan awal / dashoard
     public function index()
     {
         $data['absen'] = $this->m_model->get_history('absensi', $this->session->userdata('id'))->result();

@@ -420,7 +420,6 @@
             <img src="https://res.cloudinary.com/liquidtime/image/upload/v1653476648/cat-walk_meqsv9.gif" alt="">
         </div>
 
-
         <div class="contact-con">
             <div class="contact">
                 <p>Sign up Admin</p>
@@ -464,7 +463,6 @@
                     </svg>
                 </button>
             </div>
-
             </form>
         </div>
 
@@ -478,7 +476,6 @@
                 passwordField.type = "text";
                 passwordToggle.classList.remove('fa-eye-slash');
                 passwordToggle.classList.add('fa-eye');
-
 
             } else {
                 passwordField.type = "password";

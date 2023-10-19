@@ -135,7 +135,7 @@
                 margin-right: 6rem;
             }
 
-          
+
 
             .theme-container .msg {
                 margin-top: 20%;
@@ -143,8 +143,8 @@
             }
         }
 
-        @media (max-width: 600px) { 
-              .btn {
+        @media (max-width: 600px) {
+            .btn {
                 margin-top: 1rem;
                 margin-left: -1rem;
             }
@@ -406,7 +406,6 @@
 
 <body>
 
-
     <input type="checkbox" id="dark-mode" class="dark-mode-checkbox visually-hidden">
 
     <div class="theme-container grow">
@@ -417,7 +416,6 @@
         <div class="cat">
             <img src="https://res.cloudinary.com/liquidtime/image/upload/v1653476648/cat-walk_meqsv9.gif" alt="">
         </div>
-
 
         <div class="contact-con">
             <div class="contact">
@@ -433,9 +431,7 @@
                         <input type="password" id="password" name="password" required class="input">
                         <i class="password-toggle fa fa-eye-slash" onclick="togglePassword()"></i>
                         <label for="password" class="user-label">Password</label>
-
                     </div>
-
             </div>
             <div class="btn">
                 <button type="submit" class="cta" id="btn">
@@ -447,8 +443,6 @@
                             transform="translate(30)"></path>
                     </svg>
                 </button>
-
-
             </div>
             <div class="btn">
                 <a href="/absensi/auth/register_karyawan" type="submit" class="cta" id="btn">
@@ -460,10 +454,7 @@
                             transform="translate(30)"></path>
                     </svg>
                 </a>
-
-
             </div>
-
             </form>
         </div>
 
