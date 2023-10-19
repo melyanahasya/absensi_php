@@ -1392,13 +1392,13 @@
                 <div>
                     <p>Sistem absensi pegawai berbasis web merupakan salah satu aplikasi untuk efisiensi pegawai
                         kehadiran karena dapat dilakukan dimana saja.
-                        <br>
-                        <br>
 
+                        <br>
+                        <br>
+                        
                         Jika sistem absensi sidik jari secara rutin mengharuskan pegawai untuk hadir di lokasi
                         dimana mesin berada, berbeda dengan absensi online yang memungkinkan karyawan melakukannya
                         menjadi mobile.
-
                     </p>
 
                 </div>
