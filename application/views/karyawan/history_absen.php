@@ -132,7 +132,11 @@
                                                 <?php echo $row->date; ?>
                                             </td>
                                             <td data-cell="Jam Masuk">
-                                                <?php echo $row->jam_masuk; ?>
+                                                <?php if ($row->jam_masuk == NULL) {
+                                                    echo '-';
+                                                } else {
+                                                    echo $row->jam_masuk;
+                                                } ?>
                                             </td>
                                             <td data-cell="Jam Pulang">
                                                 <?php if ($row->jam_pulang == NULL) {
@@ -178,7 +182,7 @@
                                                 }
                                                 ?>
 
-                                              
+
                                                 <button onclick="hapus(<?php echo $row->id ?>)" type="button"
                                                     class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                     <i class="bi bi-trash"></i>

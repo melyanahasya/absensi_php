@@ -162,7 +162,11 @@
                                                 <?php echo $row->date; ?>
                                             </td>
                                             <td data-cell="Jam Masuk">
-                                                <?php echo $row->jam_masuk; ?>
+                                                <?php if ($row->jam_masuk == NULL) {
+                                                    echo '-';
+                                                } else {
+                                                    echo $row->jam_masuk;
+                                                } ?>
                                             </td>
                                             <td data-cell="Jam Pulang">
                                                 <?php if ($row->jam_pulang == NULL) {
