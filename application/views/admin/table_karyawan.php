@@ -110,6 +110,7 @@
                                         <th scope="col" class="text-center">Nama Karyawan</th>
                                         <th scope="col" class="text-center">Email</th>
                                         <th scope="col" class="text-center">Nama Lengkap</th>
+                                        <th scope="col" class="text-center">Image</th>
 
 
                                     </tr>
@@ -133,6 +134,10 @@
                                             </td>
                                             <td data-cell="Nama Lengkap">
                                                 <?php echo $row->nama_depan . ' ' . $row->nama_belakang; ?>
+                                            </td>
+                                            <td data-cell="Image">
+                                            <img width="50"  class="photo" src="<?php echo base_url('images/admin/' . $row->image) ?>" />
+                                            <!-- <img width="50"  class="photo" src="<?php echo base_url('images/karyawan/' . $row->image) ?>" /> -->
                                             </td>
 
 

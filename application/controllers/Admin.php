@@ -20,7 +20,6 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        // $data['absen'] = $this->m_model->get_history('absensi', $this->session->userdata('id'))->result();
         $data['total_karyawan'] = $this->m_model->get_data('user')->num_rows();
         $data['result'] = $this->m_model->get_data('user')->result();
         $this->load->view('admin/absensi', $data);
@@ -73,6 +72,7 @@ class Admin extends CI_Controller
         $sheet->setCellValue('C3', "EMAIL");
         $sheet->setCellValue('D3', "NAMA DEPAN");
         $sheet->setCellValue('E3', "NAMA BELAKANG");
+        $sheet->setCellValue('F3', "IMAGE");
 
         // mengaplikasikan style thead
         $sheet->getStyle('A3')->applyFromArray($style_col);
@@ -80,6 +80,7 @@ class Admin extends CI_Controller
         $sheet->getStyle('C3')->applyFromArray($style_col);
         $sheet->getStyle('D3')->applyFromArray($style_col);
         $sheet->getStyle('E3')->applyFromArray($style_col);
+        $sheet->getStyle('F3')->applyFromArray($style_col);
 
         // get dari database
         $data_karyawan = $this->m_model->get_data('user')->result();
@@ -92,12 +93,14 @@ class Admin extends CI_Controller
             $sheet->setCellValue('C' . $numrow, $data->email);
             $sheet->setCellValue('D' . $numrow, $data->nama_depan);
             $sheet->setCellValue('E' . $numrow, $data->nama_belakang);
+            $sheet->setCellValue('F' . $numrow, $data->image);
 
             $sheet->getStyle('A' . $numrow)->applyFromArray($style_row);
             $sheet->getStyle('B' . $numrow)->applyFromArray($style_row);
             $sheet->getStyle('C' . $numrow)->applyFromArray($style_row);
             $sheet->getStyle('D' . $numrow)->applyFromArray($style_row);
             $sheet->getStyle('E' . $numrow)->applyFromArray($style_row);
+            $sheet->getStyle('F' . $numrow)->applyFromArray($style_row);
 
             $no++;
             $numrow++;
@@ -109,6 +112,7 @@ class Admin extends CI_Controller
         $sheet->getColumnDimension('C')->setWidth(25);
         $sheet->getColumnDimension('D')->setWidth(20);
         $sheet->getColumnDimension('E')->setWidth(30);
+        $sheet->getColumnDimension('F')->setWidth(30);
 
         $sheet->getDefaultRowDimension()->setRowHeight(-1);
 
