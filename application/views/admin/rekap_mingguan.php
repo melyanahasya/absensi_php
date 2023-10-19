@@ -88,10 +88,7 @@
 </head>
 
 <body>
-
-
-
-
+    
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
         <?php include('sidebar.php'); ?>

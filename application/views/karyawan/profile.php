@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        
+
     <style>
         html,
         body {
@@ -284,7 +284,7 @@
                             </h4>
                             <p class="info">
                                 <?php echo $row->nama_depan . ' ' . $row->nama_belakang ?>
-                           
+
                             </p>
                             <p class="info">
                                 <?php echo $row->email ?>
@@ -308,7 +308,6 @@
                             <li><a href="<?php echo base_url('karyawan/profile') ?>"> Ubah Password</a></li>
                             <li><a href="<?php echo base_url('karyawan/ubah_foto') ?>">Ubah Foto</a></li>
                         </ul>
-
 
                         <a href="<?php echo base_url('karyawan/') ?>"><span class="follow">Back</span></a>
                         <div id="ubah_password" class="">

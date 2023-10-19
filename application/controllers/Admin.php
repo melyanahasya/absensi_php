@@ -13,17 +13,20 @@ class Admin extends CI_Controller
         $this->load->helper('my_helper');
         $this->load->library('upload');
 
+        // kondisi untuk login sesuai role
         if ($this->session->userdata('logged_in') != true || $this->session->userdata('role') != 'admin') {
             redirect(base_url() . 'auth');
         }
     }
 
+    // tampilan awal 
     public function index()
     {
         $data['total_karyawan'] = $this->m_model->get_data('user')->num_rows();
         $data['result'] = $this->m_model->get_data('user')->result();
         $this->load->view('admin/absensi', $data);
     }
+
     public function rekap_data_keseluruhan()
     {
         $data['result'] = $this->m_model->getData();
@@ -130,6 +133,7 @@ class Admin extends CI_Controller
     }
 
 
+    // rekap harian
     public function rekap_harian()
     {
         $tanggal = date('Y-m-d');
@@ -213,7 +217,7 @@ class Admin extends CI_Controller
         $numrow = 4;
         foreach ($rekap_keseluruhan as $data) {
             $sheet->setCellValue('A' . $numrow, $data->id);
-            $sheet->setCellValue('B' . $numrow, $data->nama_depan.' '.$data->nama_belakang);
+            $sheet->setCellValue('B' . $numrow, $data->nama_depan . ' ' . $data->nama_belakang);
             $sheet->setCellValue('C' . $numrow, $data->kegiatan);
             $sheet->setCellValue('D' . $numrow, $data->date);
             $sheet->setCellValue('E' . $numrow, $data->jam_masuk);
@@ -431,8 +435,7 @@ class Admin extends CI_Controller
 
             $no = 1;
             $numrow = 4;
-            foreach ($data_mingguan as $data)
-               {
+            foreach ($data_mingguan as $data) {
                 $sheet->setCellValue('A' . $numrow, $data['id']);
                 $sheet->setCellValue('B' . $numrow, $data['nama_depan'] . ' ' . $data['nama_belakang']);
                 $sheet->setCellValue('C' . $numrow, $data['kegiatan']);
@@ -493,9 +496,9 @@ class Admin extends CI_Controller
         $style_col = [
             'font' => ['bold' => true],
             'alignment' => [
-                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
-                'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
-            ],
+                    'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                    'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                ],
             'borders' => [
                 'top' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
                 'right' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
@@ -581,122 +584,122 @@ class Admin extends CI_Controller
         $writer->save('php://output');
     }
 
-     // ubah profile
-     public function profile()
-     {
-         $data['user'] = $this->m_model->get_by_id('user', 'id', $this->session->userdata('id'))->result();
-         $this->load->view('admin/profile', $data);
-     }
-     public function ubah_foto()
-     {
-         $data['user'] = $this->m_model->get_by_id('user', 'id', $this->session->userdata('id'))->result();
-         $this->load->view('admin/ubah_foto', $data);
-     }
- 
-     public function ubah_profile()
-     {
-         $data['user'] = $this->m_model->get_by_id('user', 'id', $this->session->userdata('id'))->result();
-         $this->load->view('admin/ubah_profile', $data);
-     }
- 
-     // ubah password
-     public function aksi_ubah_profile()
-     {
- 
-         $data = [
-             "username" => $this->input->post('username'),
-             "email" => $this->input->post('email'),
-             "nama_depan" => $this->input->post('nama_depan'),
-             "nama_belakang" => $this->input->post('nama_belakang'),
-         ];
- 
-         $user_id = $this->session->userdata('id');
- 
-         $eksekusi = $this->m_model->ubah_data('user', $data, array('id' => $user_id));
- 
-         if ($eksekusi) {
-             $this->session->set_flashdata('berhasil_edit_profile', 'Berhasil untuk mengedit profile');
-             $this->session->set_userdata($data);
-             redirect(base_url('admin/ubah_profile'));
-         } else {
-             $this->session->set_flashdata('gagal_edit_profile', 'Gagal untuk mengedit profile');
-             redirect(base_url('admin/ubah_profile'));
-         }
- 
-     }
- 
-     public function aksi_ubah_foto()
-     {
-         $image = $this->upload_img('image');
- 
-         $image = $this->upload_img('image');
-         if ($image[0] == false) {
-             $data = [
-                 'image' => 'userr.png',
- 
-             ];
-         } else {
-             $data = [
-                 'image' => $image[1],
- 
-             ];
-         }
- 
-         // lakukan pembaruan data
-         $this->session->set_userdata($data);
-         $update_result = $this->m_model->ubah_data('user', $data, array('id' => $this->session->userdata('id')));
- 
-         if ($update_result) {
-             redirect(base_url('admin/ubah_foto'));
-         } else {
-             redirect(base_url('admin/ubah_foto'));
-         }
-     }
+    // ubah profile
+    public function profile()
+    {
+        $data['user'] = $this->m_model->get_by_id('user', 'id', $this->session->userdata('id'))->result();
+        $this->load->view('admin/profile', $data);
+    }
+    public function ubah_foto()
+    {
+        $data['user'] = $this->m_model->get_by_id('user', 'id', $this->session->userdata('id'))->result();
+        $this->load->view('admin/ubah_foto', $data);
+    }
 
-     public function aksi_ubah_password()
-     {
-         $password_lama = $this->input->post('password_lama', true);
- 
-         $user = $this->m_model->getWhere('user', ['id' => $this->session->userdata('id')])->row_array();
- 
-         if (md5($password_lama) === $user['password']) {
-             $password_baru = $this->input->post('password_baru', true);
-             $konfirmasi_password = $this->input->post('konfirmasi_password', true);
- 
-             // Pastikan password baru dan konfirmasi password sama
-             if ($password_baru === $konfirmasi_password) {
-                 // Update password baru ke dalam database
-                 $data = ['password' => md5($password_baru)];
-                 $this->m_model->ubah_data('user', $data, ['id' => $this->session->userdata('id')]);
- 
-                 $this->session->set_flashdata('berhasil_ganti_password', 'Password berhasil diubah');
-                 redirect(base_url('admin/profile'));
-             } else {
-                 $this->session->set_flashdata('konfirmasi_pass', 'Password baru dan konfirmasi password harus sama');
-                 redirect(base_url('admin/profile'));
-             }
-         } else {
-             $this->session->set_flashdata('pass_lama', 'Pastikan anda mengisi password lama anda dengan benar');
-             redirect(base_url('admin/profile'));
-         }
-         redirect(base_url('admin/profile'));
-     }
- 
-     // untuk upload image
-     public function upload_img($value)
-     {
-         $kode = round(microtime(true) * 1000);
-         $config['upload_path'] = './images/admin';
-         $config['allowed_types'] = 'jpg|png|jpeg';
-         $config['max_size'] = '30000';
-         $config['file_name'] = $kode;
-         $this->upload->initialize($config);
-         if (!$this->upload->do_upload($value)) {
-             return array(false, '');
-         } else {
-             $fn = $this->upload->data();
-             $nama = $fn['file_name'];
-             return array(true, $nama);
-         }
-     }
+    public function ubah_profile()
+    {
+        $data['user'] = $this->m_model->get_by_id('user', 'id', $this->session->userdata('id'))->result();
+        $this->load->view('admin/ubah_profile', $data);
+    }
+
+    // ubah password
+    public function aksi_ubah_profile()
+    {
+
+        $data = [
+            "username" => $this->input->post('username'),
+            "email" => $this->input->post('email'),
+            "nama_depan" => $this->input->post('nama_depan'),
+            "nama_belakang" => $this->input->post('nama_belakang'),
+        ];
+
+        $user_id = $this->session->userdata('id');
+
+        $eksekusi = $this->m_model->ubah_data('user', $data, array('id' => $user_id));
+
+        if ($eksekusi) {
+            $this->session->set_flashdata('berhasil_edit_profile', 'Berhasil untuk mengedit profile');
+            $this->session->set_userdata($data);
+            redirect(base_url('admin/ubah_profile'));
+        } else {
+            $this->session->set_flashdata('gagal_edit_profile', 'Gagal untuk mengedit profile');
+            redirect(base_url('admin/ubah_profile'));
+        }
+
+    }
+
+    public function aksi_ubah_foto()
+    {
+        $image = $this->upload_img('image');
+
+        $image = $this->upload_img('image');
+        if ($image[0] == false) {
+            $data = [
+                'image' => 'userr.png',
+
+            ];
+        } else {
+            $data = [
+                'image' => $image[1],
+
+            ];
+        }
+
+        // lakukan pembaruan data
+        $this->session->set_userdata($data);
+        $update_result = $this->m_model->ubah_data('user', $data, array('id' => $this->session->userdata('id')));
+
+        if ($update_result) {
+            redirect(base_url('admin/ubah_foto'));
+        } else {
+            redirect(base_url('admin/ubah_foto'));
+        }
+    }
+
+    public function aksi_ubah_password()
+    {
+        $password_lama = $this->input->post('password_lama', true);
+
+        $user = $this->m_model->getWhere('user', ['id' => $this->session->userdata('id')])->row_array();
+
+        if (md5($password_lama) === $user['password']) {
+            $password_baru = $this->input->post('password_baru', true);
+            $konfirmasi_password = $this->input->post('konfirmasi_password', true);
+
+            // Pastikan password baru dan konfirmasi password sama
+            if ($password_baru === $konfirmasi_password) {
+                // Update password baru ke dalam database
+                $data = ['password' => md5($password_baru)];
+                $this->m_model->ubah_data('user', $data, ['id' => $this->session->userdata('id')]);
+
+                $this->session->set_flashdata('berhasil_ganti_password', 'Password berhasil diubah');
+                redirect(base_url('admin/profile'));
+            } else {
+                $this->session->set_flashdata('konfirmasi_pass', 'Password baru dan konfirmasi password harus sama');
+                redirect(base_url('admin/profile'));
+            }
+        } else {
+            $this->session->set_flashdata('pass_lama', 'Pastikan anda mengisi password lama anda dengan benar');
+            redirect(base_url('admin/profile'));
+        }
+        redirect(base_url('admin/profile'));
+    }
+
+    // untuk upload image
+    public function upload_img($value)
+    {
+        $kode = round(microtime(true) * 1000);
+        $config['upload_path'] = './images/admin';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size'] = '30000';
+        $config['file_name'] = $kode;
+        $this->upload->initialize($config);
+        if (!$this->upload->do_upload($value)) {
+            return array(false, '');
+        } else {
+            $fn = $this->upload->data();
+            $nama = $fn['file_name'];
+            return array(true, $nama);
+        }
+    }
 }

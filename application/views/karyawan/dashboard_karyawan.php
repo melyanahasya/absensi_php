@@ -19,9 +19,6 @@
 
 <body>
 
-
-
-
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
         <?php include('sidebar.php'); ?>
@@ -39,8 +36,11 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Masuk Kerja</span>
-                                            <span class="h3 font-bold mb-0"><?php echo $total_absen?> Hari</span>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Masuk
+                                                Kerja</span>
+                                            <span class="h3 font-bold mb-0">
+                                                <?php echo $total_absen ?> Hari
+                                            </span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-2 mb-0 text-sm">
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -59,8 +59,11 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Cuti</span>
-                                            <span class="h3 font-bold mb-0"><?php echo $total_izin?> Hari</span>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total
+                                                Cuti</span>
+                                            <span class="h3 font-bold mb-0">
+                                                <?php echo $total_izin ?> Hari
+                                            </span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
@@ -69,7 +72,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-2 mb-0 text-sm">
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +84,9 @@
                                         <div class="col">
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total
                                                 Karyawan</span>
-                                            <span class="h3 font-bold mb-0"><?php echo $total_karyawan?></span>
+                                            <span class="h3 font-bold mb-0">
+                                                <?php echo $total_karyawan ?>
+                                            </span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
@@ -90,35 +95,15 @@
                                         </div>
                                     </div>
                                     <div class="mt-2 mb-0 text-sm">
-                                       
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Work
-                                                load</span>
-                                            <span class="h3 font-bold mb-0">95%</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                                <i class="bi bi-minecart-loaded"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 mb-0 text-sm">
-                                      
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
+                    
                     </div>
                     <div class="card shadow border-0 mb-7">
-                    <div class="card-header">
+                        <div class="card-header">
                             <h5 class="mb-0">Data Karyawan</h5>
                         </div>
                         <div class="table-responsive">
@@ -134,7 +119,6 @@
                                         <th scope="col" class="text-center">Jam Pulang</th>
                                         <th scope="col" class="text-center">Keterangan Izin</th>
                                         <th scope="col" class="text-center">Status</th>
-
                                     </tr>
 
                                 </thead>
@@ -189,7 +173,7 @@
                                                     echo $row->status;
                                                 } ?>
                                             </td>
-                                           
+
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

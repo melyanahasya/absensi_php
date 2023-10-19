@@ -37,11 +37,15 @@
                             <h5 class="mb-0">Menu Absen</h5>
                         </div>
                         <div class="table-responsive">
-                            <form method="post" action="<?php echo base_url('karyawan/aksi_absen') ?>" class="form-menu-absen">
+                            <form method="post" action="<?php echo base_url('karyawan/aksi_absen') ?>"
+                                class="form-menu-absen">
                                 <div class="mb-3">
                                     <label for="kegiatan" class="form-label">Kegiatan*</label>
-                                    <textarea id="kegiatan" name="kegiatan" rows="6" class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500" required></textarea>
-                                    <div id="kegiatan" class="form-text">Isi form kegiatan diatas untuk mencatat kegiatan karyawan
+                                    <textarea id="kegiatan" name="kegiatan" rows="6"
+                                        class="bg-gray-50 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
+                                        required></textarea>
+                                    <div id="kegiatan" class="form-text">Isi form kegiatan diatas untuk mencatat
+                                        kegiatan karyawan
                                     </div>
                                 </div>
 

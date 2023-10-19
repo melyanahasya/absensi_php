@@ -17,6 +17,7 @@ class M_model extends CI_Model
         $this->load->view('login');
     }
 
+    // function delete
     function delete($table, $field, $id)
     {
         $data = $this->db->delete($table, array($field => $id));
@@ -33,7 +34,7 @@ class M_model extends CI_Model
         return $query->result();
     }
 
-
+    // functin register admin
     public function register_admin($email, $username, $nama_depan, $nama_belakang, $role, $password)
     {
         $data = array(
@@ -49,6 +50,7 @@ class M_model extends CI_Model
         $this->db->insert('user', $data);
     }
 
+    // function register karyawan
     public function register_karyawan($email, $username, $nama_depan, $nama_belakang, $role, $password)
     {
         $data = array(
@@ -72,14 +74,14 @@ class M_model extends CI_Model
         return $data;
     }
 
-    // Ubah
+    // function Ubah
     public function ubah_data($tabel, $data, $where)
     {
         $data = $this->db->update($tabel, $data, $where);
         return $this->db->affected_rows();
     }
 
-
+    // untuk get by id
     public function get_user_by_id($user_id)
     {
         $this->db->where('id', $user_id);
@@ -96,13 +98,15 @@ class M_model extends CI_Model
         return $query->result();
     }
 
-    // menampilkan jumlah absen di dashboard
+    // menampilkan total data absen di dashboard
     public function get_absen($table, $id_karyawan)
     {
         return $this->db->where('id_kayawan', $id_karyawan)
             ->where('keterangan_izin', '-')
             ->get($table);
     }
+
+    // menampilkan total data izin di dashboard
     public function get_izin($table, $id_karyawan)
     {
         return $this->db->where('id_kayawan', $id_karyawan)
@@ -115,6 +119,7 @@ class M_model extends CI_Model
         return $this->db->where('id_kayawan', $id_karyawan)->get($table);
     }
 
+    // function tambah
     public function add($table, $data)
     {
         $this->db->insert($table, $data);

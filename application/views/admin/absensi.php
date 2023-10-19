@@ -14,26 +14,23 @@
 
         /* Bootstrap Icons */
         @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
-   
+
         .card-k {
             margin-left: 1.5rem;
             width: 15rem;
         }
 
-        @media (max-width: 600px) { 
-            
-        .card-k {
-            margin-left: 1.5rem;
-            width: 18.5rem;
+        @media (max-width: 600px) {
+
+            .card-k {
+                margin-left: 1.5rem;
+                width: 18.5rem;
+            }
         }
-        }
-   </style>
+    </style>
 </head>
 
 <body>
-
-
-
 
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -52,8 +49,11 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Karyawan</span>
-                                            <span class="h3 font-bold mb-0"><?php echo $total_karyawan?></span>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total
+                                                Karyawan</span>
+                                            <span class="h3 font-bold mb-0">
+                                                <?php echo $total_karyawan ?>
+                                            </span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
@@ -62,76 +62,14 @@
                                         </div>
                                     </div>
                                     <div class="mt-2 mb-0 text-sm">
-                                      
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">New
-                                                projects</span>
-                                            <span class="h3 font-bold mb-0">215</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
-                                                <i class="bi bi-people"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 mb-0 text-sm">
-                                       
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total
-                                                hours</span>
-                                            <span class="h3 font-bold mb-0">1.400</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                                <i class="bi bi-clock-history"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 mb-0 text-sm">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Work
-                                                load</span>
-                                            <span class="h3 font-bold mb-0">95%</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                                <i class="bi bi-minecart-loaded"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 mb-0 text-sm">
-                                       
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
 
+                    <!-- menampilkan table data karyawan -->
                     <?php include('table_karyawan.php'); ?>
 
 

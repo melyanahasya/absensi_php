@@ -88,9 +88,6 @@
 
 <body>
 
-
-
-
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
         <?php include('sidebar.php'); ?>
@@ -108,8 +105,6 @@
 
                             <div class="header-data-karyawan">
                                 <h5 class="mb-0">Rekap Data Harian</h5>
-
-
                                 <a href="<?php echo base_url('admin/export_harian') ?>" type="button"
                                     class="btn btn-sm btn-primary  btn-export">
                                     export

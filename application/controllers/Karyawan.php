@@ -10,12 +10,14 @@ class Karyawan extends CI_Controller
         $this->load->helper('my_helper');
         $this->load->library('upload');
 
+        // kondisi untuk login sesuai role
         if ($this->session->userdata('logged_in') != true || $this->session->userdata('role') != 'karyawan') {
             redirect(base_url() . 'auth');
         }
     }
-    
-        public function index()
+
+    // tampilan awal
+    public function index()
     {
         $data['absen'] = $this->m_model->get_history('absensi', $this->session->userdata('id'))->result();
         $data['total_absen'] = $this->m_model->get_absen('absensi', $this->session->userdata('id'))->num_rows();
@@ -29,17 +31,21 @@ class Karyawan extends CI_Controller
         $this->load->view('karyawan/dashboard_karyawan', $data);
     }
 
+    // menu izin
     public function menu_izin()
     {
         $data['result'] = $this->m_model->get_data('absensi')->result();
         $this->load->view('karyawan/menu_izin', $data);
     }
+
+    // mebu absen
     public function menu_absen()
     {
         $data['result'] = $this->m_model->get_data('absensi')->result();
         $this->load->view('karyawan/menu_absen', $data);
     }
 
+    // menampilkan history absen
     public function history_absen()
     {
         $idKaryawan = $this->session->userdata('id');
@@ -48,6 +54,7 @@ class Karyawan extends CI_Controller
         $this->load->view('karyawan/history_absen', $data);
     }
 
+    // menampilkan page ubah history
     public function ubah_history_absen($id)
     {
         $data['result'] = $this->m_model->get_by_id('absensi', 'id', $id)->result();
@@ -68,14 +75,14 @@ class Karyawan extends CI_Controller
         }
     }
 
-
+    // hapus data
     public function hapus($id)
     {
         $this->m_model->delete('absensi', 'id', $id);
         redirect(base_url('karyawan/history_absen'));
     }
 
-
+    // function pulang
     public function pulang($id)
     {
         date_default_timezone_set('Asia/Jakarta');

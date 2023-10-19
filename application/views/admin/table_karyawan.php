@@ -76,9 +76,6 @@
 
 <body>
 
-
-
-
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
         <!-- Main content -->
@@ -136,10 +133,10 @@
                                                 <?php echo $row->nama_depan . ' ' . $row->nama_belakang; ?>
                                             </td>
                                             <td data-cell="Image">
-                                            <img width="50"  class="photo" src="<?php echo base_url('images/admin/' . $row->image) ?>" />
-                                            <!-- <img width="50"  class="photo" src="<?php echo base_url('images/karyawan/' . $row->image) ?>" /> -->
+                                                <img width="50" class="photo"
+                                                    src="<?php echo base_url('images/admin/' . $row->image) ?>" />
+                                                <!-- <img width="50"  class="photo" src="<?php echo base_url('images/karyawan/' . $row->image) ?>" /> -->
                                             </td>
-
 
                                         </tr>
                                     <?php endforeach; ?>

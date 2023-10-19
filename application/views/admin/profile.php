@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        
+
     <style>
         html,
         body {
@@ -284,7 +284,7 @@
                             </h4>
                             <p class="info">
                                 <?php echo $row->nama_depan . ' ' . $row->nama_belakang ?>
-                           
+
                             </p>
                             <p class="info">
                                 <?php echo $row->email ?>
@@ -318,8 +318,8 @@
                                 </div>
                                 <div class="table-responsive">
                                     <form method="post" enctype="multipart/form-data"
-                                        action="<?php echo base_url('admin/aksi_ubah_password') ?>"
-                                        class="form-menu-absen" style="margin: 30px 20px 20px;">
+                                        action="<?php echo base_url('admin/aksi_ubah_password') ?>" class="form-menu-absen"
+                                        style="margin: 30px 20px 20px;">
                                         <div class="row">
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Password Lama</label>
@@ -347,8 +347,6 @@
                                         </button>
                                     </form>
                                 </div>
-                                <!-- <div class="card-footer border-0 py-5">
-                                </div> -->
                             </div>
                         </div>
             </main>

@@ -1344,7 +1344,6 @@
 </head>
 
 <body>
-    <!--Designed by CodingTuting.Com-->
     <!DOCTYPE html>
     <html lang="en">
 
