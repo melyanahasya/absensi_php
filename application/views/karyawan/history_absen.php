@@ -163,11 +163,6 @@
                                                 <a href="<?php echo base_url('karyawan/ubah_history_absen/') . $row->id ?>"
                                                     class="btn btn-sm btn-square btn-neutral text-danger-hover btn-edit"> <i
                                                         class="bi bi-pen"></i></a>
-                                                <!-- <button type="button"
-                                                    class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                    <i class="bi bi-check"></i>
-                                                </button> -->
-
                                                 <?php
                                                 if ($row->status == 'done') {
                                                     echo '<div>  <button disabled" class="btn btn-sm btn-square btn-neutral text-danger-hover opacity-50">  <i class="bi bi-check"></i>  </button> 
@@ -181,7 +176,6 @@
                        </div>';
                                                 }
                                                 ?>
-
 
                                                 <button onclick="hapus(<?php echo $row->id ?>)" type="button"
                                                     class="btn btn-sm btn-square btn-neutral text-danger-hover">
