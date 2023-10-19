@@ -90,7 +90,7 @@
                         <div class="card-header">
 
                             <div class="header-data-karyawan">
-                                <h5 class="mb-0"> Data Karyawan</h5>
+                                <h5 class="mb-0"> Data Users</h5>
 
                                 <a href="<?php echo base_url('/admin/export') ?>" type="button"
                                     class="btn btn-sm btn-primary  btn-export">

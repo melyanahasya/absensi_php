@@ -1367,8 +1367,8 @@
                 <div>
                     <h1>Selamat Datang di Web Absensi Karyawan </h1>
                     <div id="intro-tag-btn">
-                        <span>Klik tombol dibawah untuk login</span>
-                        <a href="auth/" class="brand-btn">Login</a>
+                        <span>Klik tombol dibawah ini untuk Login dan Register</span>
+                        <a href="auth/" class="brand-btn">Let`s Go</a>
                     </div>
                 </div>
             </div>
