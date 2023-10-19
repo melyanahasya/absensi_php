@@ -118,10 +118,14 @@
 <body>
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+
+        <!-- memanggil sidebar  -->
         <?php include('sidebar.php'); ?>
+
         <!-- Main content -->
         <div class="h-screen flex-grow-1 overflow-y-lg-auto">
-            <!-- Header -->
+
+            <!-- memanggil navbar -->
             <?php include('navbar.php'); ?>
 
             <!-- Main -->
@@ -137,6 +141,7 @@
                                 <form class="form-bulan1" action="<?php echo base_url('admin/rekap_bulanan') ?>"
                                     method="post">
                                     <div class="select-bulan flex flex-wrap justify-center col-span-2">
+                                        <!-- select untuk menampilan bulan -->
                                         <select name="bulan" id="bulan"
                                             class="custom-select custom-select-md  rounded-md border p-2 text-black">
                                             <option selected>Pilih Bulan</option>
@@ -159,6 +164,7 @@
                                     method="post">
 
                                     <div class="select-bulan flex flex-wrap justify-center col-span-2">
+                                        <!-- select untuk memilih bulan yg akan di export -->
                                         <select name="bulan" id="bulan"
                                             class="custom-select custom-select-md  rounded-md border p-2 text-black">
                                             <option selected>Pilih Bulan</option>
@@ -181,7 +187,6 @@
                                     </button>
                                 </form>
 
-
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -197,7 +202,6 @@
                                         <th scope="col" class="text-center">Keterangan Izin</th>
 
                                     </tr>
-
                                 </thead>
                                 <tbody>
                                     <?php $no = 0;

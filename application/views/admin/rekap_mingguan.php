@@ -91,10 +91,14 @@
     
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+
+        <!-- memanggil sidebar -->
         <?php include('sidebar.php'); ?>
+
         <!-- Main content -->
         <div class="h-screen flex-grow-1 overflow-y-lg-auto">
-            <!-- Header -->
+            
+            <!-- memanggil navbar -->
             <?php include('navbar.php'); ?>
 
             <!-- Main -->
@@ -107,7 +111,7 @@
                             <div class="header-data-karyawan">
                                 <h5 class="mb-0">Rekap Data Mingguan</h5>
 
-
+                                <!-- tombol export -->
                                 <a href="<?php echo base_url('admin/export_mingguan') ?>" type="button"
                                     class="btn btn-sm btn-primary  btn-export">
                                     export

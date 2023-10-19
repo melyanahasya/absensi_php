@@ -39,6 +39,7 @@
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Masuk
                                                 Kerja</span>
                                             <span class="h3 font-bold mb-0">
+                                                <!-- untuk menampilkan total absen -->
                                                 <?php echo $total_absen ?> Hari
                                             </span>
                                         </div>
@@ -62,6 +63,7 @@
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total
                                                 Cuti</span>
                                             <span class="h3 font-bold mb-0">
+                                                <!-- menampilkan total izin -->
                                                 <?php echo $total_izin ?> Hari
                                             </span>
                                         </div>
@@ -85,6 +87,7 @@
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total
                                                 Karyawan</span>
                                             <span class="h3 font-bold mb-0">
+                                                <!-- menampilkan total karyawan -->
                                                 <?php echo $total_karyawan ?>
                                             </span>
                                         </div>
