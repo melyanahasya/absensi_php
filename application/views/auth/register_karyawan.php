@@ -455,7 +455,7 @@
             </div>
 
             <div class="btn">
-            <p style="margin-bottom: 5px;">*Validasi password 8 karakter</p>
+            <p style="margin-bottom: 5px;">*Validasi password minimal 8 karakter</p>
                 <button type="submit" class="cta" id="btn">
                     <span class="hover-underline-animation"> Register </span>
                     <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10"
