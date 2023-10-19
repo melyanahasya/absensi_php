@@ -459,7 +459,7 @@
         </div>
 
     </div>
-    <script type="text/javascript">
+          <script type="text/javascript">
         function togglePassword() {
             var passwordField = document.getElementById('password');
             var passwordToggle = document.querySelector('.password-toggle');
