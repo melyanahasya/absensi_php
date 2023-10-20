@@ -27,6 +27,13 @@ class Admin extends CI_Controller
         $this->load->view('admin/absensi', $data);
     }
 
+    public function data_users()
+    {
+      
+        $data['result'] = $this->m_model->get_data('user')->result();
+        $this->load->view('admin/data_users', $data);
+    }
+
     public function rekap_data_keseluruhan()
     {
         $data['result'] = $this->m_model->getData();

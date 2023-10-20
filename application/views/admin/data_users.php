@@ -79,8 +79,10 @@
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
         <!-- Main content -->
+        <?php include('sidebar.php'); ?>
         <div class="h-screen flex-grow-1 overflow-y-lg-auto">
             <!-- Header -->
+            <?php include('navbar.php'); ?>
 
             <!-- Main -->
             <main class="py-6 bg-surface-secondary">
@@ -92,10 +94,10 @@
                             <div class="header-data-karyawan">
                                 <h5 class="mb-0"> Data Users</h5>
 
-                                <!-- <a href="<?php echo base_url('/admin/export') ?>" type="button"
+                                <a href="<?php echo base_url('/admin/export') ?>" type="button"
                                     class="btn btn-sm btn-primary  btn-export">
                                     export
-                                </a> -->
+                                </a>
                             </div>
                         </div>
                         <div class="table-responsive">
