@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absensi</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <style>
+        
         @import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
 
         /* Bootstrap Icons */
@@ -17,7 +20,7 @@
 
         .header-data-karyawan {
             display: flex;
-            gap: 43rem;
+            gap: 51rem;
         }
 
         @media (max-width: 600px) {
@@ -64,7 +67,7 @@
             }
 
             .header-data-karyawan {
-                gap: 3rem;
+                gap: 8rem;
             }
 
             .btn-export {
@@ -110,6 +113,7 @@
                                         <th scope="col" class="text-center">Email</th>
                                         <th scope="col" class="text-center">Nama Lengkap</th>
                                         <th scope="col" class="text-center">Image</th>
+                                        <th scope="col" class="text-center">Aksi</th>
 
 
                                     </tr>
@@ -139,6 +143,14 @@
                                                     src="<?php echo base_url('images/admin/' . $row->image) ?>" />
                                                 <!-- <img width="50"  class="photo" src="<?php echo base_url('images/karyawan/' . $row->image) ?>" /> -->
                                             </td>
+                                            <td data-cell="Aksi">
+                                            <button onclick="hapus(<?php echo $row->id ?>)" type="button"
+                                                class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                            </td>
+                                           
+                                           
 
                                         </tr>
                                     <?php endforeach; ?>
@@ -152,6 +164,34 @@
             </main>
         </div>
     </div>
+
+    <script>
+          function hapus(id) {
+            Swal.fire({
+                title: 'Akan Dihapus?',
+                text: "data ini tidak bisa dikembalikan lagi!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Batal',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Sukses Menghapus!!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    setTimeout(() => {
+                        window.location.href = "<?php echo base_url('admin/data_users/') ?>" + id;
+                    }, 1800);
+                } 
+            })
+        }
+    </script>
 </body>
 
 </html>

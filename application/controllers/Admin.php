@@ -18,6 +18,13 @@ class Admin extends CI_Controller
             redirect(base_url() . 'auth');
         }
     }
+     // function hapus data
+     public function hapus($id)
+     {
+         $this->m_model->delete('user', 'id', $id);
+         redirect(base_url('admin/data_users'));
+     }
+     
 
     // tampilan awal 
     public function index()
@@ -73,7 +80,7 @@ class Admin extends CI_Controller
         ];
 
         // set judul
-        $sheet->setCellValue('A1', "DATA KARYAWAN");
+        $sheet->setCellValue('A1', "DATA USERS");
         $sheet->mergeCells('A1:E1');
         $sheet->getStyle('A1')->getFont()->setBold(true);
         // set thead
@@ -124,9 +131,9 @@ class Admin extends CI_Controller
         $sheet->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
 
         // set nama file saat di export
-        $sheet->setTitle("LAPORAN DATA KARYAWAN");
+        $sheet->setTitle("LAPORAN DATA USERS");
         header('Content-Type: aplication/vnd.openxmlformants-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment; filename="KARYAWAN.xlsx"');
+        header('Content-Disposition: attachment; filename="USERS.xlsx"');
         header('Cache-Control: max-age=0');
 
         $writer = new Xlsx($spreadsheet);

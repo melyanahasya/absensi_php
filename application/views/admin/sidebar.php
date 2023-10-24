@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absensi</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -62,37 +64,37 @@
                 <!-- Navigation -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('admin/')?>">
+                        <a class="nav-link" href="<?php echo base_url('admin/') ?>">
                             <i class="bi bi-house"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('admin/data_users')?>">
+                        <a class="nav-link" href="<?php echo base_url('admin/data_users') ?>">
                             <i class="bi bi-bar-chart"></i> Data Users
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('admin/rekap_data_keseluruhan')?>">
+                        <a class="nav-link" href="<?php echo base_url('admin/rekap_data_keseluruhan') ?>">
                             <i class="bi bi-bar-chart"></i> Rekap Data Keseluruhan
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('admin/rekap_harian')?>">
+                        <a class="nav-link" href="<?php echo base_url('admin/rekap_harian') ?>">
                             <i class="bi bi-bar-chart"></i> Rekap Data Harian
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('admin/rekap_mingguan')?>">
+                        <a class="nav-link" href="<?php echo base_url('admin/rekap_mingguan') ?>">
                             <i class="bi bi-bar-chart"></i> Rekap Data Mingguan
                         </a>
                     </li>
-                   
+
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('admin/rekap_bulanan')?>">
+                        <a class="nav-link" href="<?php echo base_url('admin/rekap_bulanan') ?>">
                             <i class="bi bi-bar-chart"></i> Rekap Data Bulanan
                         </a>
                     </li>
-                    
+
                 </ul>
                 <!-- Divider -->
                 <hr class="navbar-divider my-5 opacity-20">
@@ -102,12 +104,12 @@
                 <!-- User (md) -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('admin/profile')?>">
+                        <a class="nav-link" href="<?php echo base_url('admin/profile') ?>">
                             <i class="bi bi-person-square"></i> Akun
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('auth/logout'); ?>">
+                        <a class="nav-link" onclick="logout()">
                             <i class="bi bi-box-arrow-left"></i> Logout
                         </a>
                     </li>
@@ -115,6 +117,25 @@
             </div>
         </div>
     </nav>
+    <script>
+        function logout() {
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Apakah Anda Yakin Ingin Keluar ?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#198754',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Keluar ',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "<?php echo base_url('auth/logout'); ?>";
+                }
+            });
+        }
+    </script>
+
 </body>
 
 </html>

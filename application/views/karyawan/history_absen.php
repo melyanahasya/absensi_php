@@ -177,10 +177,10 @@
                                                 }
                                                 ?>
 
-                                                <button onclick="hapus(<?php echo $row->id ?>)" type="button"
+                                                <!-- <button onclick="hapus(<?php echo $row->id ?>)" type="button"
                                                     class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                     <i class="bi bi-trash"></i>
-                                                </button>
+                                                </button> -->
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

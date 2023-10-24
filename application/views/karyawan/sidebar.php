@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absensi</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -15,6 +17,7 @@
         /* Bootstrap Icons */
         @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
     </style>
+
 </head>
 
 <body>
@@ -31,7 +34,8 @@
             </button>
             <!-- Brand -->
             <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-                <img  style="width: 100px; height: 50px;" src="https://findlogovector.com/wp-content/uploads/2019/03/absen-logo-vector.png" alt="...">
+                <img style="width: 100px; height: 50px;"
+                    src="https://findlogovector.com/wp-content/uploads/2019/03/absen-logo-vector.png" alt="...">
             </a>
             <!-- User menu (mobile) -->
             <div class="navbar-user d-lg-none">
@@ -62,27 +66,27 @@
                 <!-- Navigation -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('/karyawan/')?>">
+                        <a class="nav-link" href="<?php echo base_url('/karyawan/') ?>">
                             <i class="bi bi-house"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('/karyawan/history_absen')?>">
+                        <a class="nav-link" href="<?php echo base_url('/karyawan/history_absen') ?>">
                             <i class="bi bi-bar-chart"></i> History Absen
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('/karyawan/menu_absen')?>">
+                        <a class="nav-link" href="<?php echo base_url('/karyawan/menu_absen') ?>">
                             <i class="bi bi-bar-chart"></i> Menu Absen
                         </a>
                     </li>
-                   
+
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('/karyawan/menu_izin')?>">
+                        <a class="nav-link" href="<?php echo base_url('/karyawan/menu_izin') ?>">
                             <i class="bi bi-bar-chart"></i> Menu Izin
                         </a>
                     </li>
-                   
+
                 </ul>
                 <!-- Divider -->
                 <hr class="navbar-divider my-5 opacity-20">
@@ -92,12 +96,12 @@
                 <!-- User (md) -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('karyawan/profile')?>">
+                        <a class="nav-link" href="<?php echo base_url('karyawan/profile') ?>">
                             <i class="bi bi-person-square"></i> Akun
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('auth/logout'); ?>">
+                        <a class="nav-link" onclick="logout()">
                             <i class="bi bi-box-arrow-left"></i> Logout
                         </a>
                     </li>
@@ -106,5 +110,23 @@
         </div>
     </nav>
 </body>
+<script>
+    function logout() {
+        Swal.fire({
+            title: 'Konfirmasi',
+            text: 'Apakah Anda Yakin Ingin Keluar ?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#198754',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Keluar ',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "<?php echo base_url('auth/logout'); ?>";
+            }
+        });
+    }
+</script>
 
 </html>

@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
-                                                <i class="bi bi-credit-card"></i>
+                                                <i class="bi bi-laptop"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -69,7 +69,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
-                                                <i class="bi bi-people"></i>
+                                                <i class="bi bi-house"></i>
                                             </div>
                                         </div>
                                     </div>

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absensi</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -309,7 +311,6 @@
                             <li><a href="<?php echo base_url('admin/ubah_foto') ?>">Ubah Foto</a></li>
                         </ul>
 
-
                         <a href="<?php echo base_url('admin/') ?>"><span class="follow">Back</span></a>
                         <div id="ubah_password" class="">
                             <div class="card shadow border-0 mb-7" style="margin:2rem 5px;">
@@ -337,12 +338,10 @@
                                                 <input value="" type="password" class="form-control" id="konfirmasi"
                                                     name="konfirmasi_password" aria-describedby="nama">
                                             </div>
-
                                         </div>
 
                                         <button name="submit" type="submit"
                                             class="btn d-inline-flex btn-sm btn-primary mx-1">
-
                                             <span>Submit</span>
                                         </button>
                                     </form>

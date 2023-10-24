@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absensi</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -322,18 +325,20 @@
                                         <div class="row">
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Password Lama</label>
-                                                <i class="password-toggle fa fa-eye-slash" onclick="togglePassword()"></i>
-                                                <input value="" type="password" class="form-control" id="lama"
+                                                <!-- <i class="password-toggle fa fa-eye-slash" onclick="togglePassword()"></i> -->
+                                                <input value="" id="password" type="password" class="form-control" id="lama"
                                                     name="password_lama" aria-describedby="nama">
                                             </div>
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Password Baru</label>
-                                                <input value="" type="password" class="form-control" id="baru"
+                                                <!-- <i class="password-toggle fa fa-eye-slash" onclick="togglePassword()"></i> -->
+                                                <input value="" id="password1" type="password" class="form-control" id="baru"
                                                     name="password_baru" aria-describedby="nama">
                                             </div>
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Konfirmasi Password</label>
-                                                <input value="" type="password" class="form-control" id="konfirmasi"
+                                                <!-- <i class="password-toggle fa fa-eye-slash" onclick="togglePassword()"></i> -->
+                                                <input value="" id="password2" type="password" class="form-control" id="konfirmasi"
                                                     name="konfirmasi_password" aria-describedby="nama">
                                             </div>
 
@@ -356,24 +361,25 @@
 
     <?php endforeach ?>
     <script type="text/javascript">
-        function togglePassword() {
-            var passwordField = document.getElementById('password');
-            var passwordToggle = document.querySelector('.password-toggle');
+    function togglePassword() {
+        var passwordField = document.getElementById('password');
+        var passwordToggle = document.querySelector('.password-toggle');
 
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                passwordToggle.classList.remove('fa-eye-slash');
-                passwordToggle.classList.add('fa-eye');
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            passwordToggle.classList.remove('fa-eye-slash');
+            passwordToggle.classList.add('fa-eye');
 
 
-            } else {
-                passwordField.type = "password";
-                passwordToggle.classList.add('fa-eye-slash');
-                passwordToggle.classList.remove('fa-eye');
+        } else {
+            passwordField.type = "password";
+            passwordToggle.classList.add('fa-eye-slash');
+            passwordToggle.classList.remove('fa-eye');
 
-            }
         }
-    </script>
+
+ 
+</script>
 </body>
 
 </html>

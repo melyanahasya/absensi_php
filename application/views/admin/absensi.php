@@ -50,7 +50,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total
-                                                Karyawan</span>
+                                                Akun</span>
                                             <span class="h3 font-bold mb-0">
                                                 <?php echo $total_karyawan ?>
                                             </span>
@@ -70,7 +70,71 @@
                     </div>
 
                     <!-- menampilkan table data karyawan -->
-                    <?php include('table_karyawan.php'); ?>
+                    <main class="py-6 bg-surface-secondary">
+                        <div class="container-fluid">
+
+                            <div class="card shadow border-0 mb-7">
+                                <div class="card-header">
+
+                                    <div class="header-data-karyawan">
+                                        <h5 class="mb-0"> Data Users</h5>
+
+                                        <!-- <a href="<?php echo base_url('/admin/export') ?>" type="button"
+                                    class="btn btn-sm btn-primary  btn-export">
+                                    export
+                                </a> -->
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-nowrap">
+                                        <thead class="thead-light">
+
+                                            <tr>
+                                                <th scope="col" class="text-center">No</th>
+                                                <th scope="col" class="text-center">Nama Karyawan</th>
+                                                <th scope="col" class="text-center">Email</th>
+                                                <th scope="col" class="text-center">Nama Lengkap</th>
+                                                <th scope="col" class="text-center">Image</th>
+
+
+                                            </tr>
+
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 0;
+                                            foreach ($result as $row):
+                                                $no++ ?>
+                                                <tr>
+
+                                                    <td data-cell="No">
+                                                        <?php echo $no ?>
+                                                    </td>
+
+                                                    <td data-cell="Username">
+                                                        <?php echo $row->username ?>
+                                                    </td>
+                                                    <td data-cell="Email">
+                                                        <?php echo $row->email; ?>
+                                                    </td>
+                                                    <td data-cell="Nama Lengkap">
+                                                        <?php echo $row->nama_depan . ' ' . $row->nama_belakang; ?>
+                                                    </td>
+                                                    <td data-cell="Image">
+                                                        <img width="50" class="photo"
+                                                            src="<?php echo base_url('images/admin/' . $row->image) ?>" />
+                                                        <!-- <img width="50"  class="photo" src="<?php echo base_url('images/karyawan/' . $row->image) ?>" /> -->
+                                                    </td>
+
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="card-footer border-0 py-5">
+                                </div>
+                            </div>
+                        </div>
+                    </main>
 
 
                 </div>
