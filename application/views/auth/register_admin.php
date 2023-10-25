@@ -265,6 +265,9 @@
                             <input id="role" required="" value="admin" type="hidden" name="role" class="input">
                         </div>
 
+                        <div class="input-group ">
+                            <input id="image" required="" value="./images/admin/userr.png" type="hidden" name="image" class="input">
+                        </div>
 
                         <div class="inputContainer">
                             <label class="label" for="emailAddress"><img src="https://i.imgur.com/g5SvdfG.png"

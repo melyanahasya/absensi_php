@@ -19,12 +19,12 @@ class Admin extends CI_Controller
         }
     }
      // function hapus data
-     public function hapus($id)
+     public function delete_data($id)
      {
+         $this->m_model->delete_relasi($id);
          $this->m_model->delete('user', 'id', $id);
          redirect(base_url('admin/data_users'));
      }
-     
 
     // tampilan awal 
     public function index()

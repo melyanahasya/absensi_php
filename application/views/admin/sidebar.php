@@ -5,8 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absensi</title>
-    
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -65,35 +74,40 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('admin/') ?>">
-                            <i class="bi bi-house"></i> Dashboard
+                            <i class="fas fa-home"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('admin/data_users') ?>">
-                            <i class="bi bi-bar-chart"></i> Data Users
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('admin/rekap_data_keseluruhan') ?>">
-                            <i class="bi bi-bar-chart"></i> Rekap Data Keseluruhan
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('admin/rekap_harian') ?>">
-                            <i class="bi bi-bar-chart"></i> Rekap Data Harian
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('admin/rekap_mingguan') ?>">
-                            <i class="bi bi-bar-chart"></i> Rekap Data Mingguan
+                            <i class="fas fa-chart-bar"></i> Data Users
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('admin/rekap_bulanan') ?>">
-                            <i class="bi bi-bar-chart"></i> Rekap Data Bulanan
+                        <a href="#submenu1" id="dropdownMenuButton1" data-bs-toggle="collapse"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                            class="nav-link">
+                            <i class="fas fa-bars"></i> Rekap Data
                         </a>
+                        <ul class="navbar-nav" id="submenu1" data-bs-parent="#menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo base_url('admin/rekap_harian') ?>">
+                                    Rekap Harian
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo base_url('admin/rekap_mingguan') ?>">
+                                    Rekap Mingguan
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo base_url('admin/rekap_bulanan') ?>">
+                                    Rekap Bulanan
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+
 
                 </ul>
                 <!-- Divider -->
@@ -117,6 +131,9 @@
             </div>
         </div>
     </nav>
+    <script src="path-to-jquery/jquery.min.js"></script>
+    <script src="path-to-bootstrap-js/bootstrap.min.js"></script>
+
     <script>
         function logout() {
             Swal.fire({

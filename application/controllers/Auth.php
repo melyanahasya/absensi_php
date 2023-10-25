@@ -67,6 +67,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('nama_depan', 'Nama depan', 'required');
         $this->form_validation->set_rules('nama_belakang', 'Nama belakang', 'required');
         $this->form_validation->set_rules('role', 'Role', 'required');
+        $this->form_validation->set_rules('image', 'Image', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
 
         if ($this->form_validation->run() == FALSE) {
@@ -79,10 +80,11 @@ class Auth extends CI_Controller
             $nama_depan = $this->input->post('nama_depan');
             $nama_belakang = $this->input->post('nama_belakang');
             $role = $this->input->post('role');
+            $image = $this->input->post('userr.png');
             $password = md5($this->input->post('password'));
 
             // Panggil model untuk menyimpan data ke database
-            $this->m_model->register_admin($email, $username, $nama_depan, $nama_belakang, $role, $password);
+            $this->m_model->register_admin($email, $username, $nama_depan, $nama_belakang, $role, $image, $password);
 
             // Redirect ke halaman sukses atau login
             redirect('auth'); // Gantilah 'login' dengan halaman yang sesuai
@@ -97,6 +99,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('nama_depan', 'Nama depan', 'required');
         $this->form_validation->set_rules('nama_belakang', 'Nama belakang', 'required');
         $this->form_validation->set_rules('role', 'Role', 'required');
+        $this->form_validation->set_rules('image', 'Image', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
 
         if ($this->form_validation->run() == FALSE) {
@@ -109,10 +112,11 @@ class Auth extends CI_Controller
             $nama_depan = $this->input->post('nama_depan');
             $nama_belakang = $this->input->post('nama_belakang');
             $role = $this->input->post('role');
+            $image = $this->input->post('user.png');
             $password = md5($this->input->post('password'));
 
             // Panggil model untuk menyimpan data ke database
-            $this->m_model->register_karyawan($email, $username, $nama_depan, $nama_belakang, $role, $password);
+            $this->m_model->register_karyawan($email, $username, $nama_depan, $nama_belakang, $role, $image, $password);
 
             // Redirect ke halaman sukses atau login
             redirect('auth'); // Gantilah 'login' dengan halaman yang sesuai

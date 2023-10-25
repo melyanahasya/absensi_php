@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absensi</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -17,6 +19,34 @@
         body {
             background: #efefef;
             font-family: "Arial";
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 70%;
+            transform: translateY(-50%);
+            right: 9%;
+            cursor: pointer;
+        }
+
+        .password-toggle_baru {
+            position: absolute;
+            top: 70%;
+            transform: translateY(-50%);
+            right: 9%;
+            cursor: pointer;
+        }
+
+        .password-toggle_konfirmasi {
+            position: absolute;
+            top: 70%;
+            transform: translateY(-50%);
+            right: 9%;
+            cursor: pointer;
         }
 
         .container {
@@ -90,6 +120,30 @@
             .active {
                 right: calc(50% - 60px);
                 top: 50px;
+            }
+
+            .password-toggle {
+                position: absolute;
+                top: 80%;
+                transform: translateY(-50%);
+                right: 15%;
+                cursor: pointer;
+            }
+
+            .password-toggle_baru {
+                position: absolute;
+                top: 80%;
+                transform: translateY(-50%);
+                right: 15%;
+                cursor: pointer;
+            }
+
+            .password-toggle_konfirmasi {
+                position: absolute;
+                top: 80%;
+                transform: translateY(-50%);
+                right: 15%;
+                cursor: pointer;
             }
         }
 
@@ -325,18 +379,23 @@
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Password Lama</label>
                                                 <i class="password-toggle fa fa-eye-slash" onclick="togglePassword()"></i>
-                                                <input value="" type="password" class="form-control" id="lama"
+                                                <input value="" type="password" class="form-control" id="password"
                                                     name="password_lama" aria-describedby="nama">
                                             </div>
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Password Baru</label>
-                                                <input value="" type="password" class="form-control" id="baru"
+                                                <i class="password-toggle_baru fa fa-eye-slash"
+                                                    onclick="togglePassword_baru()"></i>
+                                                <input value="" type="password" class="form-control" id="password_baru"
                                                     name="password_baru" aria-describedby="nama">
                                             </div>
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Konfirmasi Password</label>
-                                                <input value="" type="password" class="form-control" id="konfirmasi"
-                                                    name="konfirmasi_password" aria-describedby="nama">
+                                                <i class="password-toggle_konfirmasi fa fa-eye-slash"
+                                                    onclick="togglePassword_konfirmasi()"></i>
+                                                <input value="" type="password" class="form-control"
+                                                    id="password_konfirmasi" name="konfirmasi_password"
+                                                    aria-describedby="nama">
                                             </div>
                                         </div>
 
@@ -353,6 +412,7 @@
 
 
     <?php endforeach ?>
+    
     <script type="text/javascript">
         function togglePassword() {
             var passwordField = document.getElementById('password');
@@ -371,7 +431,42 @@
 
             }
         }
+        function togglePassword_baru() {
+            var passwordField = document.getElementById('password_baru');
+            var passwordToggle = document.querySelector('.password-toggle_baru');
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+
+
+            } else {
+                passwordField.type = "password";
+                passwordToggle.classList.add('fa-eye-slash');
+                passwordToggle.classList.remove('fa-eye');
+
+            }
+        }
+        function togglePassword_konfirmasi() {
+            var passwordField = document.getElementById('password_konfirmasi');
+            var passwordToggle = document.querySelector('.password-toggle_konfirmasi');
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+
+
+            } else {
+                passwordField.type = "password";
+                passwordToggle.classList.add('fa-eye-slash');
+                passwordToggle.classList.remove('fa-eye');
+
+            }
+        }
     </script>
+
 </body>
 
 </html>

@@ -23,6 +23,11 @@ class M_model extends CI_Model
         $data = $this->db->delete($table, array($field => $id));
         return $data;
     }
+    function delete_relasi($id)
+    {
+        $data = $this->db->where('id_kayawan', $id);
+        $data = $this->db->delete('absensi');
+    }
 
     public function getData()
     {
@@ -35,7 +40,7 @@ class M_model extends CI_Model
     }
 
     // functin register admin
-    public function register_admin($email, $username, $nama_depan, $nama_belakang, $role, $password)
+    public function register_admin($email, $username, $nama_depan, $nama_belakang, $role, $image, $password)
     {
         $data = array(
             'email' => $email,
@@ -43,6 +48,7 @@ class M_model extends CI_Model
             'nama_depan' => $nama_depan,
             'nama_belakang' => $nama_belakang,
             'role' => $role,
+            'image' => 'userr.png',
             'password' => $password
         );
 
@@ -51,7 +57,7 @@ class M_model extends CI_Model
     }
 
     // function register karyawan
-    public function register_karyawan($email, $username, $nama_depan, $nama_belakang, $role, $password)
+    public function register_karyawan($email, $username, $nama_depan, $nama_belakang, $role, $image, $password)
     {
         $data = array(
             'email' => $email,
@@ -59,7 +65,9 @@ class M_model extends CI_Model
             'nama_depan' => $nama_depan,
             'nama_belakang' => $nama_belakang,
             'role' => $role,
+            'image' => 'user.png',
             'password' => $password
+
         );
 
         // Simpan data ke dalam tabel pengguna (ganti 'users' sesuai dengan nama tabel Anda)

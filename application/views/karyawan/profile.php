@@ -325,21 +325,23 @@
                                         <div class="row">
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Password Lama</label>
-                                                <!-- <i class="password-toggle fa fa-eye-slash" onclick="togglePassword()"></i> -->
+                                                <i class="password-toggle fa fa-eye-slash" onclick="togglePassword()"></i>
                                                 <input value="" id="password" type="password" class="form-control" id="lama"
                                                     name="password_lama" aria-describedby="nama">
                                             </div>
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Password Baru</label>
-                                                <!-- <i class="password-toggle fa fa-eye-slash" onclick="togglePassword()"></i> -->
-                                                <input value="" id="password1" type="password" class="form-control" id="baru"
-                                                    name="password_baru" aria-describedby="nama">
+                                                <i class="password-toggle fa fa-eye-slash"
+                                                    onclick="togglePassword_baru()"></i>
+                                                <input value="" id="password1" type="password" class="form-control"
+                                                    id="baru" name="password_baru" aria-describedby="nama">
                                             </div>
                                             <div class="mb-3 col-6">
                                                 <label for="nama" class="form-label bold">Konfirmasi Password</label>
-                                                <!-- <i class="password-toggle fa fa-eye-slash" onclick="togglePassword()"></i> -->
-                                                <input value="" id="password2" type="password" class="form-control" id="konfirmasi"
-                                                    name="konfirmasi_password" aria-describedby="nama">
+                                                <i class="password-toggle fa fa-eye-slash"
+                                                    onclick="togglePassword_konfirmasi()"></i>
+                                                <input value="" id="password2" type="password" class="form-control"
+                                                    id="konfirmasi" name="konfirmasi_password" aria-describedby="nama">
                                             </div>
 
                                         </div>
@@ -361,25 +363,58 @@
 
     <?php endforeach ?>
     <script type="text/javascript">
-    function togglePassword() {
-        var passwordField = document.getElementById('password');
-        var passwordToggle = document.querySelector('.password-toggle');
+        function togglePassword() {
+            var passwordField = document.getElementById('password');
+            var passwordToggle = document.querySelector('.password-toggle');
 
-        if (passwordField.type === "password") {
-            passwordField.type = "text";
-            passwordToggle.classList.remove('fa-eye-slash');
-            passwordToggle.classList.add('fa-eye');
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
 
 
-        } else {
-            passwordField.type = "password";
-            passwordToggle.classList.add('fa-eye-slash');
-            passwordToggle.classList.remove('fa-eye');
+            } else {
+                passwordField.type = "password";
+                passwordToggle.classList.add('fa-eye-slash');
+                passwordToggle.classList.remove('fa-eye');
 
+            }
         }
+        function togglePassword_baru() {
+            var passwordField = document.getElementById('password_baru');
+            var passwordToggle = document.querySelector('.password-toggle_baru');
 
- 
-</script>
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+
+
+            } else {
+                passwordField.type = "password";
+                passwordToggle.classList.add('fa-eye-slash');
+                passwordToggle.classList.remove('fa-eye');
+
+            }
+        }
+        function togglePassword_konfirmasi() {
+            var passwordField = document.getElementById('password_konfirmasi');
+            var passwordToggle = document.querySelector('.password-toggle_konfirmasi');
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+
+
+            } else {
+                passwordField.type = "password";
+                passwordToggle.classList.add('fa-eye-slash');
+                passwordToggle.classList.remove('fa-eye');
+
+            }
+        }
+    </script>
 </body>
 
 </html>

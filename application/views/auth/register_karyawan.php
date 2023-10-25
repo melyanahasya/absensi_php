@@ -264,6 +264,9 @@
                         <div class="input-group ">
                             <input id="role" required="" value="karyawan" type="hidden" name="role" class="input">
                         </div>
+                        <div class="input-group ">
+                            <input id="image" required="" value="./images/karyawan/user.png" type="hidden" name="image" class="input">
+                        </div>
 
 
                         <div class="inputContainer">

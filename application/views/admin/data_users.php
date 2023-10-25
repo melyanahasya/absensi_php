@@ -173,6 +173,7 @@
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
+                background: '#fff',
                 cancelButtonColor: '#d33',
                 cancelButtonText: 'Batal',
                 confirmButtonText: 'Ya, hapus!'
@@ -186,7 +187,7 @@
                         timer: 1500
                     })
                     setTimeout(() => {
-                        window.location.href = "<?php echo base_url('admin/data_users/') ?>" + id;
+                        window.location.href = "<?php echo base_url('admin/delete_data/') ?>" + id;
                     }, 1800);
                 } 
             })
